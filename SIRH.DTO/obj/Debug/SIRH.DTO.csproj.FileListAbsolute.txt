@@ -1,0 +1,51 @@
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.DTO\bin\Debug\SIRH.DTO.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.DTO\bin\Debug\SIRH.DTO.pdb
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.pdb
+C:\Users\ramir\Desktop\Inge II\Proyecto 28\SIRH_6_7_2022\SIRH.DTO\bin\Debug\SIRH.DTO.dll
+C:\Users\ramir\Desktop\Inge II\Proyecto 28\SIRH_6_7_2022\SIRH.DTO\bin\Debug\SIRH.DTO.pdb
+C:\Users\ramir\Desktop\Inge II\Proyecto 28\SIRH_6_7_2022\SIRH.DTO\obj\Debug\SIRH.DTO.csproj.AssemblyReference.cache
+C:\Users\ramir\Desktop\Inge II\Proyecto 28\SIRH_6_7_2022\SIRH.DTO\obj\Debug\SIRH.DTO.csproj.CoreCompileInputs.cache
+C:\Users\ramir\Desktop\Inge II\Proyecto 28\SIRH_6_7_2022\SIRH.DTO\obj\Debug\SIRH.DTO.dll
+C:\Users\ramir\Desktop\Inge II\Proyecto 28\SIRH_6_7_2022\SIRH.DTO\obj\Debug\SIRH.DTO.pdb
+C:\Users\ramir\Desktop\Inge II\Copia\SIRH_6_7_2022\SIRH.DTO\bin\Debug\SIRH.DTO.dll
+C:\Users\ramir\Desktop\Inge II\Copia\SIRH_6_7_2022\SIRH.DTO\bin\Debug\SIRH.DTO.pdb
+C:\Users\ramir\Desktop\Inge II\Copia\SIRH_6_7_2022\SIRH.DTO\obj\Debug\SIRH.DTO.csproj.AssemblyReference.cache
+C:\Users\ramir\Desktop\Inge II\Copia\SIRH_6_7_2022\SIRH.DTO\obj\Debug\SIRH.DTO.csproj.CoreCompileInputs.cache
+C:\Users\ramir\Desktop\Inge II\Copia\SIRH_6_7_2022\SIRH.DTO\obj\Debug\SIRH.DTO.dll
+C:\Users\ramir\Desktop\Inge II\Copia\SIRH_6_7_2022\SIRH.DTO\obj\Debug\SIRH.DTO.pdb
+C:\Users\ramir\Desktop\Inge II\Copia 4\SIRH_6_7_2022\SIRH.DTO\bin\Debug\SIRH.DTO.dll
+C:\Users\ramir\Desktop\Inge II\Copia 4\SIRH_6_7_2022\SIRH.DTO\bin\Debug\SIRH.DTO.pdb
+C:\Users\ramir\Desktop\Inge II\Copia 4\SIRH_6_7_2022\SIRH.DTO\obj\Debug\SIRH.DTO.csproj.CoreCompileInputs.cache
+C:\Users\ramir\Desktop\Inge II\Copia 4\SIRH_6_7_2022\SIRH.DTO\obj\Debug\SIRH.DTO.dll
+C:\Users\ramir\Desktop\Inge II\Copia 4\SIRH_6_7_2022\SIRH.DTO\obj\Debug\SIRH.DTO.pdb
+C:\Users\ramir\Desktop\Inge II\Copia 6\SIRH_6_7_2022\SIRH.DTO\bin\Debug\SIRH.DTO.dll
+C:\Users\ramir\Desktop\Inge II\Copia 6\SIRH_6_7_2022\SIRH.DTO\bin\Debug\SIRH.DTO.pdb
+C:\Users\ramir\Desktop\Inge II\Copia 6\SIRH_6_7_2022\SIRH.DTO\obj\Debug\SIRH.DTO.csproj.CoreCompileInputs.cache
+C:\Users\ramir\Desktop\Inge II\Copia 6\SIRH_6_7_2022\SIRH.DTO\obj\Debug\SIRH.DTO.dll
+C:\Users\ramir\Desktop\Inge II\Copia 6\SIRH_6_7_2022\SIRH.DTO\obj\Debug\SIRH.DTO.pdb
+C:\Users\BMC\Desktop\Ginmer\IICiclo-2022\UNA\Inge II\Git SIRH\SIRH\SIRH.DTO\bin\Debug\SIRH.DTO.dll
+C:\Users\BMC\Desktop\Ginmer\IICiclo-2022\UNA\Inge II\Git SIRH\SIRH\SIRH.DTO\bin\Debug\SIRH.DTO.pdb
+C:\Users\BMC\Desktop\Ginmer\IICiclo-2022\UNA\Inge II\Git SIRH\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.csproj.CoreCompileInputs.cache
+C:\Users\BMC\Desktop\Ginmer\IICiclo-2022\UNA\Inge II\Git SIRH\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.dll
+C:\Users\BMC\Desktop\Ginmer\IICiclo-2022\UNA\Inge II\Git SIRH\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.pdb
+C:\Users\ramir\Downloads\SIRH\SIRH.DTO\bin\Debug\SIRH.DTO.dll
+C:\Users\ramir\Downloads\SIRH\SIRH.DTO\bin\Debug\SIRH.DTO.pdb
+C:\Users\ramir\Downloads\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.csproj.CoreCompileInputs.cache
+C:\Users\ramir\Downloads\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.dll
+C:\Users\ramir\Downloads\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.pdb
+C:\Users\ksand\Downloads\SIRH-Historial&Decretos\SIRH\SIRH.DTO\bin\Debug\SIRH.DTO.dll
+C:\Users\ksand\Downloads\SIRH-Historial&Decretos\SIRH\SIRH.DTO\bin\Debug\SIRH.DTO.pdb
+C:\Users\ksand\Downloads\SIRH-Historial&Decretos\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.csproj.CoreCompileInputs.cache
+C:\Users\ksand\Downloads\SIRH-Historial&Decretos\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.dll
+C:\Users\ksand\Downloads\SIRH-Historial&Decretos\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.pdb
+C:\Users\ramir\Music\copia Kathy\SIRH-Historial&Decretos\SIRH\SIRH.DTO\bin\Debug\SIRH.DTO.dll
+C:\Users\ramir\Music\copia Kathy\SIRH-Historial&Decretos\SIRH\SIRH.DTO\bin\Debug\SIRH.DTO.pdb
+C:\Users\ramir\Music\copia Kathy\SIRH-Historial&Decretos\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.csproj.CoreCompileInputs.cache
+C:\Users\ramir\Music\copia Kathy\SIRH-Historial&Decretos\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.dll
+C:\Users\ramir\Music\copia Kathy\SIRH-Historial&Decretos\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.pdb
+C:\Users\ramir\Music\2023\SIRH-Historial&Decretos\SIRH\SIRH.DTO\bin\Debug\SIRH.DTO.dll
+C:\Users\ramir\Music\2023\SIRH-Historial&Decretos\SIRH\SIRH.DTO\bin\Debug\SIRH.DTO.pdb
+C:\Users\ramir\Music\2023\SIRH-Historial&Decretos\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.csproj.CoreCompileInputs.cache
+C:\Users\ramir\Music\2023\SIRH-Historial&Decretos\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.dll
+C:\Users\ramir\Music\2023\SIRH-Historial&Decretos\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.pdb

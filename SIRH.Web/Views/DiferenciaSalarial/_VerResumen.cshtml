@@ -1,0 +1,313 @@
+﻿@model SIRH.Web.ViewModels.FormularioDiferenciaSalarialVM
+@using (Html.BeginForm("AgregarDiferenciaSalarial", "DiferenciaSalarial", FormMethod.Post))
+{
+    @Html.HiddenFor(model => Model.Paso)
+    @Html.HiddenFor(model => Model.Funcionario.Cedula)
+    @Html.HiddenFor(model => Model.PuestoAnterior.CodPuesto)
+    @Html.HiddenFor(model => Model.PuestoActual.CodPuesto)
+    @Html.HiddenFor(model => model.DetallePuestoActual.Clase.DesClase)
+    @Html.HiddenFor(model => model.DetallePuestoActual.Clase.IdEntidad)
+    @Html.HiddenFor(model => model.DetallePuestoAnterior.Clase.DesClase)
+    @Html.HiddenFor(model => model.DetallePuestoAnterior.Clase.IdEntidad)
+    @Html.HiddenFor(model => model.DetallePuestoActual.Especialidad.DesEspecialidad)
+    @Html.HiddenFor(model => model.DetallePuestoActual.Especialidad.IdEntidad)
+    @Html.HiddenFor(model => model.DetallePuestoAnterior.Especialidad.DesEspecialidad)
+    @Html.HiddenFor(model => model.DetallePuestoAnterior.Especialidad.IdEntidad)
+    @Html.HiddenFor(model => model.PeriodoActual.FecInicio)
+    @Html.HiddenFor(model => model.PeriodoActual.FecFinal)
+
+    <div class="card rounded-0" style="margin-top: -8px;">
+        <div class="card-body">
+            <h5>Cálculo diferencias varios periodos</h5>
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <td class="text-left">
+                        Diferencia del periodo escolar
+                    </td>
+                    <td>
+                        valor
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left">
+                        Salario escolar
+                    </td>
+                    <td>
+                        valor
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="card rounded-0">
+        <div class="card-body">
+            <h5>Deducciones de Ley a aplicar (Obrero)</h5>
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <td>
+                        Deducción
+                    </td>
+                    <td>
+                        Porcentaje
+                    </td>
+                    <td>
+                        Periodo
+                    </td>
+                    <td>
+                        Escolar
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left">
+                        Seguro enfermedad
+                    </td>
+                    <td>
+                        5.50%
+                    </td>
+                    <td>
+                        valor 1
+                    </td>
+                    <td>
+                        valor 2
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left">
+                        Seguro I.V.M
+                    </td>
+                    <td>
+                        4.00%
+                    </td>
+                    <td>
+                        valor 1
+                    </td>
+                    <td>
+                        valor 2
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left">
+                        Banco Popular
+                    </td>
+                    <td>
+                        1.00%
+                    </td>
+                    <td>
+                        valor 1
+                    </td>
+                    <td>
+                        valor 2
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left">
+                        Total
+                    </td>
+                    <td>
+                        10.50%
+                    </td>
+                    <td>
+                        valor 1
+                    </td>
+                    <td>
+                        valor 2
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="card rounded-0">
+        <div class="card-body">
+            <h5>Deducción de Renta</h5>
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <td class="text-left">
+                        Seguro enfermedad
+                    </td>
+                    <td>
+                        10% / 15%
+                    </td>
+                    <td>
+                        valor
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="card rounded-0">
+        <div class="card-body">
+            <h5>Total a pagar al servidor</h5>
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <td class="text-left">
+                        Diferencia liquida
+                    </td>
+                    <td>
+                        Valor
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left">
+                        Aguinaldo
+                    </td>
+                    <td>
+                        Valor
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left">
+                        Salario escolar
+                    </td>
+                    <td>
+                        Valor
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="card rounded-0">
+        <div class="card-body">
+            <h5>Deducciones de Ley a aplicar (Patronal)</h5>
+            <table class="table table-striped table-bordered text-left align-middle">
+                <tr>
+                    <td>
+                        00405200
+                    </td>
+                    <td>
+                        Aporte Patr. Banco Popular
+                    </td>
+                    <td class="text-center">
+                        0.50%
+                    </td>
+                    <td class="text-center">
+                        Valor
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        00501200
+                    </td>
+                    <td>
+                        Cont. Patr. Seguro Pensiones
+                    </td>
+                    <td class="text-center">
+                        5.25%
+                    </td>
+                    <td class="text-center">
+                        Valor
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        00401200
+                    </td>
+                    <td>
+                        Cont. Patr. Seguro Salud
+                    </td>
+                    <td class="text-center">
+                        9.25%
+                    </td>
+                    <td class="text-center">
+                        Valor
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        00502200
+                    </td>
+                    <td>
+                        Aporte Patr. Reg. Oblig. Pens.
+                    </td>
+                    <td class="text-center">
+                        1.50%
+                    </td>
+                    <td class="text-center">
+                        Valor
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        00503200
+                    </td>
+                    <td>
+                        Aporte Patr. Fdo. Capt. Lab.
+                    </td>
+                    <td class="text-center">
+                        3.00%
+                    </td>
+                    <td class="text-center">
+                        Valor
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        60103200
+                    </td>
+                    <td>
+                        Trans. Inst. Descen. CCSS. Contrib.<br>
+                        Estatal Seguro Pensiones
+                    </td>
+                    <td class="text-center">
+                        1.24%
+                    </td>
+                    <td class="text-center">
+                        Valor
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        60103202
+                    </td>
+                    <td>
+                        Trans. Inst. Descen. CCSS. Contrib.<br>
+                        Estatal Seguro Salud
+                    </td>
+                    <td class="text-center">
+                        0.25%
+                    </td>
+                    <td class="text-center">
+                        Valor
+                    </td>
+                </tr>
+                <tr class="text-center">
+                    <td colspan="2">
+                        Total Deducciones (Patronal)
+                    </td>
+                    <td>
+                        20.99%
+                    </td>
+                    <td>
+                        Valor
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="card rounded-0">
+        <div class="card-body">
+            <div class="row justify-content-around">
+                <div class="col">
+                    <input name="SubmitButton" class="btn btn-secondary btn-block" type="submit" value="Regresar" />
+                </div>
+                <div class="col">
+                    <button name="SubmitButton" class="btn btn-danger btn-block" type="submit" value="Finalizar y Exportar PDF">
+                        <i class="fa fa-file-pdf-o"></i>
+                        Exportar PDF
+                    </button>
+                </div>
+                <div class="col">
+                    <input name="SubmitButton" class="btn btn-primary btn-block" type="submit" value="Finalizar y Salir" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

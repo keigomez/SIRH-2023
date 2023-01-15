@@ -1,0 +1,63 @@
+﻿@model SIRH.Web.ViewModels.BusquedaDiferenciaSalarialVM
+
+<div>
+    <h4>BusquedaDiferenciaSalarialVM</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FecInicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FecInicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FecFinal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FecFinal)
+        </dd>
+
+        <dt>
+            ud
+            @Html.DisplayNameFor(model => model.ItemsPorPagina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemsPorPagina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalItems)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalItems)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalPaginas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalPaginas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaginaActual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaginaActual)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

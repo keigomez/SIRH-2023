@@ -1,0 +1,131 @@
+﻿@model SIRH.Web.ViewModels.FormularioDiferenciaSalarialVM
+
+@using (Html.BeginForm("AgregarDiferenciaSalarial", "DiferenciaSalarial", FormMethod.Post))
+{
+    @Html.HiddenFor(model => Model.Paso)
+
+    <div class="card rounded-0" style="margin-top: -8px;">
+        <div class="card-body">
+            <h4>
+                Información de los puestos
+            </h4>
+            <div class="row">
+                <div class="form-group col-4">
+                    <h5> @Html.LabelFor(model => model.Funcionario) </h5>
+                    @Html.TextBoxFor(model => model.Funcionario.Cedula, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-2">
+                </div>
+                <div class="col-5 h5">
+                    Anterior
+                </div>
+                <div class="col-5 h5">
+                    Actual
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-2 text-right">
+                    Numero
+                </div>
+                <div class="form-group offset-1 col-4 text-left">
+                    @Html.TextBoxFor(model => model.PuestoAnterior.CodPuesto, new { @class = "form-control" })
+                </div>
+                <div class="form-group offset-1 col-4 text-left">
+                    @Html.TextBoxFor(model => model.PuestoActual.CodPuesto, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-2 text-right">
+                    @Html.LabelFor(model => model.DetallePuestoAnterior.Clase.DesClase)
+                </div>
+                <div class="form-group col-1 text-right">
+                    <button type="button" class="btn btn-warning" id="DialogClase" title="Editar clase"><i class="fa fa-pencil-square-o"></i></button>
+                </div>
+                <div class="form-group col-4 text-left">
+                    @Html.TextBoxFor(model => model.DetallePuestoAnterior.Clase.DesClase, new { @class = "form-control", @id = "codclase", @readonly = false })
+                    @Html.HiddenFor(model => model.DetallePuestoAnterior.Clase.DesClase)
+                    @Html.HiddenFor(model => model.DetallePuestoAnterior.Clase.IdEntidad)
+                </div>
+                <div class="form-group col-1 text-right">
+                    <button type="button" class="btn btn-warning" id="DialogClase2" title="Editar clase"><i class="fa fa-pencil-square-o"></i></button>
+                </div>
+                <div class="form-group col-4 text-left">
+                    @Html.TextBoxFor(model => model.DetallePuestoActual.Clase.DesClase, new { @class = "form-control", @id = "codclase2", @readonly = false })
+                    @Html.HiddenFor(model => model.DetallePuestoActual.Clase.DesClase)
+                    @Html.HiddenFor(model => model.DetallePuestoActual.Clase.IdEntidad)
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-2 text-right">
+                    @Html.LabelFor(model => model.DetallePuestoAnterior.Especialidad.DesEspecialidad)
+                </div>
+                <div class="form-group col-1 text-right">
+                    <button type="button" class="btn btn-warning" id="DialogEspecialidad" title="Editar especialidad"><i class="fa fa-pencil-square-o"></i></button>
+                </div>
+                <div class="form-group col-4 text-left">
+                    @Html.TextBoxFor(model => model.DetallePuestoAnterior.Especialidad.DesEspecialidad, new { @class = "form-control", @id = "codespecialidad", @readonly = false })
+                    @Html.HiddenFor(model => model.DetallePuestoAnterior.Especialidad.DesEspecialidad)
+                    @Html.HiddenFor(model => model.DetallePuestoAnterior.Especialidad.IdEntidad)
+                </div>
+                <div class="form-group col-1 text-right">
+                    <button type="button" class="btn btn-warning" id="DialogEspecialidad2" title="Editar especialidad"><i class="fa fa-pencil-square-o"></i></button>
+                </div>
+                <div class="form-group col-4 text-left">
+                    @Html.TextBoxFor(model => model.DetallePuestoActual.Especialidad.DesEspecialidad, new { @class = "form-control", @id = "codespecialidad2", @readonly = false })
+                    @Html.HiddenFor(model => model.DetallePuestoActual.Especialidad.DesEspecialidad)
+                    @Html.HiddenFor(model => model.DetallePuestoActual.Especialidad.IdEntidad)
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-2">
+                </div>
+                <div class="form-group col-4">
+                    <input name="SubmitButton" class="btn btn-primary" type="submit" value="Continuar" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}
+
+<div class="modal fade" id="buscar-clase" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Búsqueda por Clase</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @{Html.RenderPartial("Clase_Index", new SIRH.Web.Models.ClaseModel()); }
+            </div>
+            <div class="modal-footer">
+                <button id="CacelarCalculoPopUp" type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="buscar-especialidad" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Búsqueda por Especialidad</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @{Html.RenderPartial("Especialidad_Index", new SIRH.Web.Models.EspecialidadModel()); }
+            </div>
+            <div class="modal-footer">
+                <button id="CacelarCalculoPopUp" type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+

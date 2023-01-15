@@ -1,0 +1,83 @@
+﻿@model IList<SIRH.DTO.CComponentePresupuestarioDTO>
+@{
+    using (Html.BeginForm("GenerarReportePresupuesto", "ComponentePresupuestario", FormMethod.Post, new { @id = "thisForm" }))
+    {
+        <div class="card">
+            <div class="card-body">
+                <table class="table detalle">
+                    <thead>
+                        <tr>
+                            <th scope="col">Año</th>
+                            <th scope="col">Objeto Gasto</th>
+                            <th scope="col">Programa</th>
+                            <th scope="col">Monto</th>
+                            <th scope="col">Tipo de movimiento</th>
+                            <th scope="col">Detalle</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.Count; i++)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.Encode(Model[i].AnioPresupuesto)
+                                    @Html.HiddenFor(model => model[i].AnioPresupuesto)
+                                </td>
+
+
+
+                                <td>
+                                    @Html.AttributeEncode(Model[i].ObjetoGasto.DesObjGasto)
+                                    @Html.HiddenFor(model => model[i].ObjetoGasto.DesObjGasto)
+                                </td>
+
+
+
+                                <td>
+                                    @Html.AttributeEncode(Model[i].Programa.DesPrograma)
+                                    @Html.HiddenFor(model => model[i].Programa.DesPrograma)
+                                </td>
+
+
+
+                                <td>
+                                    ₡ @Html.Encode(String.Format("{0:F}", Model[i].MontoComponente.ToString("#,#.00#;(#,#.00#)")))
+                                    @Html.HiddenFor(model => model[i].MontoComponente)
+                                </td>
+
+
+
+                                <td>
+                                    @Html.Encode(Model[i].TipoMovimiento.DesMovimientoPresupuesto)
+                                    @Html.HiddenFor(model => model[i].TipoMovimiento.DesMovimientoPresupuesto)
+                                </td>
+
+                                <td>
+                                    @Html.Encode(Model[i].Detalle)
+                                    @Html.HiddenFor(model => model[i].Detalle)
+                                </td>
+
+
+
+
+                                @*<td>
+                                    <a href="@Url.Action("Details", "ComponentePresupuestario", new { id = Model[i].IdEntidad })" class="btn btn-primary btn-sm">
+                                        <i class="fa fa-search"></i> Ver Detalles
+                                    </a>
+                                </td>*@
+
+
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <br />
+                <button class="btn btn-success" type="submit"><i class="fa fa-file-excel-o"></i> Exportar a excel</button>
+            </div>
+        </div>
+    }
+}
+

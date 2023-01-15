@@ -1,0 +1,554 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CDiferenciaSalarialService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/SIRH.DTO" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICDiferenciaSalarialService_GuardarDiferenciaSalarial_InputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarDiferenciaSalarial" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_GuardarDiferenciaSalarial_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarDiferenciaSalarialResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarDiferenciaSalarial_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarDiferenciaSalarial" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarDiferenciaSalarial_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarDiferenciaSalarialResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarDiferenciasSalarialesPorPuesto_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarDiferenciasSalarialesPorPuesto" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarDiferenciasSalarialesPorPuesto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarDiferenciasSalarialesPorPuestoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarDiferenciasSalarialesPorFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarDiferenciasSalarialesPorFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarDiferenciasSalarialesPorFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarDiferenciasSalarialesPorFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_ListarComponentesSalariales_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarComponentesSalariales" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_ListarComponentesSalariales_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarComponentesSalarialesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_GuardarDetalleDiferenciaSalarial_InputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarDetalleDiferenciaSalarial" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_GuardarDetalleDiferenciaSalarial_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarDetalleDiferenciaSalarialResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarDetalleDiferenciaSalarial_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarDetalleDiferenciaSalarial" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarDetalleDiferenciaSalarial_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarDetalleDiferenciaSalarialResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_FiltrarDiferenciasSalariales_InputMessage">
+    <wsdl:part name="parameters" element="tns:FiltrarDiferenciasSalariales" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_FiltrarDiferenciasSalariales_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FiltrarDiferenciasSalarialesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarDetallesPorDiferenciaSalarial_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarDetallesPorDiferenciaSalarial" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarDetallesPorDiferenciaSalarial_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarDetallesPorDiferenciaSalarialResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_GuardarDetalleRubro_InputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarDetalleRubro" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_GuardarDetalleRubro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarDetalleRubroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarDetalleRubro_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarDetalleRubro" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarDetalleRubro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarDetalleRubroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_ObtenerCatalogoRubrosDeduccionPorDetalleDiferencia_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCatalogoRubrosDeduccionPorDetalleDiferencia" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_ObtenerCatalogoRubrosDeduccionPorDetalleDiferencia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCatalogoRubrosDeduccionPorDetalleDiferenciaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_GuardarPorcentajeRenta_InputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarPorcentajeRenta" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_GuardarPorcentajeRenta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarPorcentajeRentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarPorcentajeRenta_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarPorcentajeRenta" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarPorcentajeRenta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarPorcentajeRentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_GuardarPorcentajeSalarioEscolar_InputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarPorcentajeSalarioEscolar" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_GuardarPorcentajeSalarioEscolar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarPorcentajeSalarioEscolarResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarPorcentajeSalarioEscolar_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarPorcentajeSalarioEscolar" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarPorcentajeSalarioEscolar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarPorcentajeSalarioEscolarResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_GuardarDetalleDeducciones_InputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarDetalleDeducciones" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_GuardarDetalleDeducciones_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarDetalleDeduccionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarDetalleDeducciones_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarDetalleDeducciones" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarDetalleDeducciones_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarDetalleDeduccionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarDetalleDeduccionPorDetalleDiferenciaSalarial_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarDetalleDeduccionPorDetalleDiferenciaSalarial" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarDetalleDeduccionPorDetalleDiferenciaSalarial_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarDetalleDeduccionPorDetalleDiferenciaSalarialResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_GuardarCatalogoTipoDeduccion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarCatalogoTipoDeduccion" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_GuardarCatalogoTipoDeduccion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarCatalogoTipoDeduccionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarCatalogoTipoDeduccion_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarCatalogoTipoDeduccion" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarCatalogoTipoDeduccion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarCatalogoTipoDeduccionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarRubrosDeducciones_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarRubrosDeducciones" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarRubrosDeducciones_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarRubrosDeduccionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_GuardarRubroDeduccion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarRubroDeduccion" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_GuardarRubroDeduccion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarRubroDeduccionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarRubroDeduccion_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarRubroDeduccion" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarRubroDeduccion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarRubroDeduccionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarDetallesPorCatalogoTipoDeduccion_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarDetallesPorCatalogoTipoDeduccion" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarDetallesPorCatalogoTipoDeduccion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarDetallesPorCatalogoTipoDeduccionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_GuardarCatalogoRubroDeduccion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarCatalogoRubroDeduccion" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_GuardarCatalogoRubroDeduccion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarCatalogoRubroDeduccionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarCatalogoRubroDeduccion_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarCatalogoRubroDeduccion" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscarCatalogoRubroDeduccion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarCatalogoRubroDeduccionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_ObtenerCatalogoRubrosDeduccion_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCatalogoRubrosDeduccion" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_ObtenerCatalogoRubrosDeduccion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCatalogoRubrosDeduccionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICDiferenciaSalarialService">
+    <wsdl:operation name="GuardarDiferenciaSalarial">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/GuardarDiferenciaSalarial" message="tns:ICDiferenciaSalarialService_GuardarDiferenciaSalarial_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/GuardarDiferenciaSalarialResponse" message="tns:ICDiferenciaSalarialService_GuardarDiferenciaSalarial_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarDiferenciaSalarial">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarDiferenciaSalarial" message="tns:ICDiferenciaSalarialService_BuscarDiferenciaSalarial_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarDiferenciaSalarialResponse" message="tns:ICDiferenciaSalarialService_BuscarDiferenciaSalarial_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarDiferenciasSalarialesPorPuesto">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarDiferenciasSalarialesPorPuesto" message="tns:ICDiferenciaSalarialService_BuscarDiferenciasSalarialesPorPuesto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarDiferenciasSalarialesPorPuestoResponse" message="tns:ICDiferenciaSalarialService_BuscarDiferenciasSalarialesPorPuesto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarDiferenciasSalarialesPorFuncionario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarDiferenciasSalarialesPorFuncionario" message="tns:ICDiferenciaSalarialService_BuscarDiferenciasSalarialesPorFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarDiferenciasSalarialesPorFuncionarioResponse" message="tns:ICDiferenciaSalarialService_BuscarDiferenciasSalarialesPorFuncionario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarComponentesSalariales">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/ListarComponentesSalariales" message="tns:ICDiferenciaSalarialService_ListarComponentesSalariales_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/ListarComponentesSalarialesResponse" message="tns:ICDiferenciaSalarialService_ListarComponentesSalariales_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarDetalleDiferenciaSalarial">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/GuardarDetalleDiferenciaSalarial" message="tns:ICDiferenciaSalarialService_GuardarDetalleDiferenciaSalarial_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/GuardarDetalleDiferenciaSalarialResponse" message="tns:ICDiferenciaSalarialService_GuardarDetalleDiferenciaSalarial_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarDetalleDiferenciaSalarial">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarDetalleDiferenciaSalarial" message="tns:ICDiferenciaSalarialService_BuscarDetalleDiferenciaSalarial_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarDetalleDiferenciaSalarialResponse" message="tns:ICDiferenciaSalarialService_BuscarDetalleDiferenciaSalarial_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FiltrarDiferenciasSalariales">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/FiltrarDiferenciasSalariales" message="tns:ICDiferenciaSalarialService_FiltrarDiferenciasSalariales_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/FiltrarDiferenciasSalarialesResponse" message="tns:ICDiferenciaSalarialService_FiltrarDiferenciasSalariales_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarDetallesPorDiferenciaSalarial">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarDetallesPorDiferenciaSalarial" message="tns:ICDiferenciaSalarialService_BuscarDetallesPorDiferenciaSalarial_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarDetallesPorDiferenciaSalarialResponse" message="tns:ICDiferenciaSalarialService_BuscarDetallesPorDiferenciaSalarial_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarDetalleRubro">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/GuardarDetalleRubro" message="tns:ICDiferenciaSalarialService_GuardarDetalleRubro_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/GuardarDetalleRubroResponse" message="tns:ICDiferenciaSalarialService_GuardarDetalleRubro_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarDetalleRubro">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarDetalleRubro" message="tns:ICDiferenciaSalarialService_BuscarDetalleRubro_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarDetalleRubroResponse" message="tns:ICDiferenciaSalarialService_BuscarDetalleRubro_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCatalogoRubrosDeduccionPorDetalleDiferencia">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/ObtenerCatalogoRubrosDeduccionPorDetalleDiferencia" message="tns:ICDiferenciaSalarialService_ObtenerCatalogoRubrosDeduccionPorDetalleDiferencia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/ObtenerCatalogoRubrosDeduccionPorDetalleDiferenciaResponse" message="tns:ICDiferenciaSalarialService_ObtenerCatalogoRubrosDeduccionPorDetalleDiferencia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarPorcentajeRenta">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/GuardarPorcentajeRenta" message="tns:ICDiferenciaSalarialService_GuardarPorcentajeRenta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/GuardarPorcentajeRentaResponse" message="tns:ICDiferenciaSalarialService_GuardarPorcentajeRenta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPorcentajeRenta">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarPorcentajeRenta" message="tns:ICDiferenciaSalarialService_BuscarPorcentajeRenta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarPorcentajeRentaResponse" message="tns:ICDiferenciaSalarialService_BuscarPorcentajeRenta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarPorcentajeSalarioEscolar">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/GuardarPorcentajeSalarioEscolar" message="tns:ICDiferenciaSalarialService_GuardarPorcentajeSalarioEscolar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/GuardarPorcentajeSalarioEscolarResponse" message="tns:ICDiferenciaSalarialService_GuardarPorcentajeSalarioEscolar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPorcentajeSalarioEscolar">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarPorcentajeSalarioEscolar" message="tns:ICDiferenciaSalarialService_BuscarPorcentajeSalarioEscolar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarPorcentajeSalarioEscolarResponse" message="tns:ICDiferenciaSalarialService_BuscarPorcentajeSalarioEscolar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarDetalleDeducciones">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/GuardarDetalleDeducciones" message="tns:ICDiferenciaSalarialService_GuardarDetalleDeducciones_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/GuardarDetalleDeduccionesResponse" message="tns:ICDiferenciaSalarialService_GuardarDetalleDeducciones_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarDetalleDeducciones">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarDetalleDeducciones" message="tns:ICDiferenciaSalarialService_BuscarDetalleDeducciones_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarDetalleDeduccionesResponse" message="tns:ICDiferenciaSalarialService_BuscarDetalleDeducciones_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarDetalleDeduccionPorDetalleDiferenciaSalarial">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarDetalleDeduccionPorDetalleDiferenciaSalarial" message="tns:ICDiferenciaSalarialService_BuscarDetalleDeduccionPorDetalleDiferenciaSalarial_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarDetalleDeduccionPorDetalleDiferenciaSalarialResponse" message="tns:ICDiferenciaSalarialService_BuscarDetalleDeduccionPorDetalleDiferenciaSalarial_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarCatalogoTipoDeduccion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/GuardarCatalogoTipoDeduccion" message="tns:ICDiferenciaSalarialService_GuardarCatalogoTipoDeduccion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/GuardarCatalogoTipoDeduccionResponse" message="tns:ICDiferenciaSalarialService_GuardarCatalogoTipoDeduccion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarCatalogoTipoDeduccion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarCatalogoTipoDeduccion" message="tns:ICDiferenciaSalarialService_BuscarCatalogoTipoDeduccion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarCatalogoTipoDeduccionResponse" message="tns:ICDiferenciaSalarialService_BuscarCatalogoTipoDeduccion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarRubrosDeducciones">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarRubrosDeducciones" message="tns:ICDiferenciaSalarialService_BuscarRubrosDeducciones_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarRubrosDeduccionesResponse" message="tns:ICDiferenciaSalarialService_BuscarRubrosDeducciones_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarRubroDeduccion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/GuardarRubroDeduccion" message="tns:ICDiferenciaSalarialService_GuardarRubroDeduccion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/GuardarRubroDeduccionResponse" message="tns:ICDiferenciaSalarialService_GuardarRubroDeduccion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarRubroDeduccion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarRubroDeduccion" message="tns:ICDiferenciaSalarialService_BuscarRubroDeduccion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarRubroDeduccionResponse" message="tns:ICDiferenciaSalarialService_BuscarRubroDeduccion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarDetallesPorCatalogoTipoDeduccion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarDetallesPorCatalogoTipoDeduccion" message="tns:ICDiferenciaSalarialService_BuscarDetallesPorCatalogoTipoDeduccion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarDetallesPorCatalogoTipoDeduccionResponse" message="tns:ICDiferenciaSalarialService_BuscarDetallesPorCatalogoTipoDeduccion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarCatalogoRubroDeduccion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/GuardarCatalogoRubroDeduccion" message="tns:ICDiferenciaSalarialService_GuardarCatalogoRubroDeduccion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/GuardarCatalogoRubroDeduccionResponse" message="tns:ICDiferenciaSalarialService_GuardarCatalogoRubroDeduccion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarCatalogoRubroDeduccion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarCatalogoRubroDeduccion" message="tns:ICDiferenciaSalarialService_BuscarCatalogoRubroDeduccion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscarCatalogoRubroDeduccionResponse" message="tns:ICDiferenciaSalarialService_BuscarCatalogoRubroDeduccion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCatalogoRubrosDeduccion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/ObtenerCatalogoRubrosDeduccion" message="tns:ICDiferenciaSalarialService_ObtenerCatalogoRubrosDeduccion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/ObtenerCatalogoRubrosDeduccionResponse" message="tns:ICDiferenciaSalarialService_ObtenerCatalogoRubrosDeduccion_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICDiferenciaSalarialService" type="tns:ICDiferenciaSalarialService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GuardarDiferenciaSalarial">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/GuardarDiferenciaSalarial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarDiferenciaSalarial">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/BuscarDiferenciaSalarial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarDiferenciasSalarialesPorPuesto">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/BuscarDiferenciasSalarialesPorPuesto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarDiferenciasSalarialesPorFuncionario">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/BuscarDiferenciasSalarialesPorFuncionario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarComponentesSalariales">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/ListarComponentesSalariales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarDetalleDiferenciaSalarial">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/GuardarDetalleDiferenciaSalarial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarDetalleDiferenciaSalarial">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/BuscarDetalleDiferenciaSalarial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FiltrarDiferenciasSalariales">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/FiltrarDiferenciasSalariales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarDetallesPorDiferenciaSalarial">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/BuscarDetallesPorDiferenciaSalarial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarDetalleRubro">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/GuardarDetalleRubro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarDetalleRubro">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/BuscarDetalleRubro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCatalogoRubrosDeduccionPorDetalleDiferencia">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/ObtenerCatalogoRubrosDeduccionPorDetalleDiferencia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarPorcentajeRenta">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/GuardarPorcentajeRenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPorcentajeRenta">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/BuscarPorcentajeRenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarPorcentajeSalarioEscolar">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/GuardarPorcentajeSalarioEscolar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPorcentajeSalarioEscolar">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/BuscarPorcentajeSalarioEscolar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarDetalleDeducciones">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/GuardarDetalleDeducciones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarDetalleDeducciones">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/BuscarDetalleDeducciones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarDetalleDeduccionPorDetalleDiferenciaSalarial">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/BuscarDetalleDeduccionPorDetalleDiferenciaSalarial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarCatalogoTipoDeduccion">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/GuardarCatalogoTipoDeduccion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarCatalogoTipoDeduccion">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/BuscarCatalogoTipoDeduccion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarRubrosDeducciones">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/BuscarRubrosDeducciones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarRubroDeduccion">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/GuardarRubroDeduccion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarRubroDeduccion">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/BuscarRubroDeduccion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarDetallesPorCatalogoTipoDeduccion">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/BuscarDetallesPorCatalogoTipoDeduccion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarCatalogoRubroDeduccion">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/GuardarCatalogoRubroDeduccion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarCatalogoRubroDeduccion">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/BuscarCatalogoRubroDeduccion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCatalogoRubrosDeduccion">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/ObtenerCatalogoRubrosDeduccion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CDiferenciaSalarialService">
+    <wsdl:port name="BasicHttpBinding_ICDiferenciaSalarialService" binding="tns:BasicHttpBinding_ICDiferenciaSalarialService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/SIRH.Servicios/CDiferenciaSalarialService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

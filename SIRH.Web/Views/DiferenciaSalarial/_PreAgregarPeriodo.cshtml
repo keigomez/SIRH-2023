@@ -1,0 +1,127 @@
+﻿@model SIRH.Web.ViewModels.FormularioDiferenciaSalarialVM
+@using SIRH.DTO
+
+@using (Html.BeginForm("AgregarDiferenciaSalarial", "DiferenciaSalarial", FormMethod.Post))
+{
+    @Html.HiddenFor(model => Model.Paso)
+    <div class="row" style="margin-top: -8px;">
+        <div class="col-12">
+            <div class="card rounded-0">
+                <div class="card-body">
+                    <h4>
+                        Información de los puestos
+                    </h4>
+                    <div class="row">
+                        <div class="form-group col-4">
+                            <h5> @Html.LabelFor(model => model.Funcionario) </h5>
+                            @Model.Funcionario.Cedula
+                            @Html.HiddenFor(model => Model.Funcionario.Cedula)
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-4 offset-3 h5">
+                            Anterior
+                        </div>
+                        <div class="col-4 h5">
+                            Actual
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-3 text-right">
+                            Numero
+                        </div>
+                        <div class="form-group col-4 text-center">
+                            @Model.PuestoAnterior.CodPuesto
+                            @Html.HiddenFor(model => Model.PuestoAnterior.CodPuesto)
+                        </div>
+                        <div class="form-group col-4 text-center">
+                            @Model.PuestoActual.CodPuesto
+                            @Html.HiddenFor(model => Model.PuestoActual.CodPuesto)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-3 text-right">
+                            Clase
+                        </div>
+                        <div class="form-group col-4 text-center">
+                            @Model.DetallePuestoAnterior.Clase.DesClase
+                            @Html.HiddenFor(model => Model.DetallePuestoAnterior.Clase.DesClase)
+                        </div>
+                        <div class="form-group col-4 text-center">
+                            @Model.DetallePuestoActual.Clase.DesClase
+                            @Html.HiddenFor(model => Model.DetallePuestoActual.Clase.DesClase)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-3 text-right">
+                            Especialidad
+                        </div>
+                        <div class="form-group col-4 text-center">
+                            @Model.DetallePuestoAnterior.Especialidad.DesEspecialidad
+                            @Html.HiddenFor(model => Model.DetallePuestoAnterior.Especialidad.DesEspecialidad)
+                        </div>
+                        <div class="form-group col-4 text-center">
+                            @Model.DetallePuestoActual.Especialidad.DesEspecialidad
+                            @Html.HiddenFor(model => Model.DetallePuestoActual.Especialidad.DesEspecialidad)
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="form-group offset-3 col-8">
+                            <button name="SubmitButton" class="btn btn-secondary" type="submit" value="Editar Puestos">
+                                <i class="fa fa-edit"></i>
+                                Editar información de puestos
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-3 text-right">
+                            <h5>Fechas</h5>
+                        </div>
+                        <div class="form-group col-4 text-center">
+                            <span>Inicial</span>
+                            @Html.TextBoxFor(model => model.PeriodoActual.FecInicio, new { @id = "datepickerEmision", @class = "form-control", @readonly = "readonly" })
+                            @Html.HiddenFor(model => model.PeriodoActual.FecInicio)
+                        </div>
+                        <div class="form-group col-4 text-center">
+                            <span>Final</span>
+                            @Html.TextBoxFor(model => model.PeriodoActual.FecFinal, new { @id = "datepickerVence", @class = "form-control ", @readonly = "readonly" })
+                            @Html.HiddenFor(model => model.PeriodoActual.FecFinal)
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="form-group offset-2 col-4 text-center">
+                            <button name="SubmitButton" class="btn btn-success btn-primary"
+                                    type="submit" data-toggle="tooltip"
+                                    data-placement="right" title="Agregar periodo"
+                                    value="Nuevo periodo">
+                                Agregar periodo
+                            </button>
+                        </div>
+                        <div class="form-group col-4">
+                            @{var periodos = (List<CDetalleDiferenciaSalarialDTO>)Session["periodos"];}
+                            @if (periodos.Count() > 0)
+                            {
+                                <button name="SubmitButton" class="btn btn-primary"
+                                        type="submit" data-toggle="tooltip"
+                                        data-placement="right" title="Ver periodos"
+                                        value="Ver periodos">
+                                    <i class="fa fa-eye"></i>
+                                    Ver periodos
+                                </button>
+                            }
+                            else
+                            {
+                                <button name="SubmitButton" class="btn btn-secondary disabled" data-toggle="tooltip"
+                                        data-placement="right" title="No se ha ingresado ningun periodo" disabled>
+                                    <i class="fa fa-eye"></i>
+                                    Ver periodos
+                                </button>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

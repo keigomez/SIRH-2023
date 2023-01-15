@@ -1,0 +1,187 @@
+﻿@model SIRH.Web.ViewModels.FormularioDiferenciaSalarialVM
+
+@using (Html.BeginForm("AgregarDiferenciaSalarial", "DiferenciaSalarial", FormMethod.Post))
+{
+    @Html.HiddenFor(model => Model.Paso)
+
+<div class="row" style="margin-top: -8px;">
+    <div class="col-12">
+        <div class="card rounded-0">
+            <div class="card-body">
+                <h4>
+                    Información de los puestos
+                </h4>
+                <div class="row">
+                    <div class="form-group col-4">
+                        <h5> @Html.LabelFor(model => model.Funcionario) </h5>
+                        @Model.Funcionario.Cedula
+                        @Html.HiddenFor(model => Model.Funcionario.Cedula)
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col-4 offset-3 h5">
+                        Anterior
+                    </div>
+                    <div class="col-4 h5">
+                        Actual
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-3 text-right">
+                        Numero
+                    </div>
+                    <div class="form-group col-4 text-center">
+                        @Model.PuestoAnterior.CodPuesto
+                        @Html.HiddenFor(model => Model.PuestoAnterior.CodPuesto)
+                    </div>
+                    <div class="form-group col-4 text-center">
+                        @Model.PuestoActual.CodPuesto
+                        @Html.HiddenFor(model => Model.PuestoActual.CodPuesto)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-3 text-right">
+                        Clase
+                    </div>
+                    <div class="form-group col-4 text-center">
+                        @Model.DetallePuestoAnterior.Clase.DesClase
+                        @Html.HiddenFor(model => Model.DetallePuestoAnterior.Clase.DesClase)
+                    </div>
+                    <div class="form-group col-4 text-center">
+                        @Model.DetallePuestoActual.Clase.DesClase
+                        @Html.HiddenFor(model => Model.DetallePuestoActual.Clase.DesClase)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-3 text-right">
+                        Especialidad
+                    </div>
+                    <div class="form-group col-4 text-center">
+                        @Model.DetallePuestoAnterior.Especialidad.DesEspecialidad
+                        @Html.HiddenFor(model => Model.DetallePuestoAnterior.Especialidad.DesEspecialidad)
+                    </div>
+                    <div class="form-group col-4 text-center">
+                        @Model.DetallePuestoActual.Especialidad.DesEspecialidad
+                        @Html.HiddenFor(model => Model.DetallePuestoActual.Especialidad.DesEspecialidad)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-3 text-right">
+                        <h5>Fechas</h5>
+                    </div>
+                    <div class="form-group col-4 text-center">
+                        <span>Inicial</span><br>
+                        @Model.PeriodoActual.FecInicio.ToString().Split(' ')[0]
+                        @Html.HiddenFor(model => model.PeriodoActual.FecInicio)
+                    </div>
+                    <div class="form-group col-4 text-center">
+                        <span>Final</span><br>
+                        @Model.PeriodoActual.FecFinal.ToString().Split(' ')[0]
+                        @Html.HiddenFor(model => model.PeriodoActual.FecFinal)
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="form-group offset-2 col-4 text-center">
+                        <button name="SubmitButton" class="btn btn-secondary btn-secondary"
+                                type="submit" data-toggle="tooltip"
+                                data-placement="right" title="Cambiar fechas"
+                                value="Cambiar fechas">
+                            Cambiar fechas
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col-12">
+        <div class="card rounded-0">
+            <div class="card-body">
+                <h4>
+                    Información del periodo
+                </h4>
+                <div class="row">
+                    <div class="form-group col-5 text-right">
+                    </div>
+                    <div class="form-group col-6 text-center h4">
+                        Rubros
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col-5">
+                    </div>
+                    <div class="col-3 h5">
+                        Anterior
+                    </div>
+                    <div class="col-3 h5">
+                        Actual
+                    </div>
+                </div>
+
+                @for (var i = 0; i < Model.Rubros.Count(); i++)
+                {
+                <div class="row text-center">
+                    <div class="form-group col-3">
+                        @Model.Rubros[i].ComponenteSalarial.DesComponenteSalarial
+                        @Html.HiddenFor(model => model.Rubros[i].ComponenteSalarial.DesComponenteSalarial)
+                    </div>
+                    <div class="form-group col-2">
+                        @Html.CheckBoxFor(model => model.AplicaRubro[i], new { onclick = "return ValidarCheck(this)", id = "fieldRubro-" + i })
+                        @Html.HiddenFor(model => model.AplicaRubro[i])
+                    </div>
+                    <div class="form-group col-3">
+                        @Html.TextBoxFor(model => model.Rubros[i].MontoAnterior, new
+                        {
+                        @id = "fieldRubro-" + @i + "-anterior",
+                        @class = "form-control",
+                        @type = "number",
+                        @min = 0,
+                        @oninvalid = "this.setCustomValidity('El monto anterior debe ser un numero positivo')",
+                        @value = " ",
+                        @style = Model.AplicaRubro[i] ? "display:block" : "display:none",
+                        })
+                        @Html.HiddenFor(model => model.Rubros[i].MontoAnterior)
+                    </div>
+                    <div class="form-group col-3">
+                        @Html.TextBoxFor(model => model.Rubros[i].MontoActual, new
+                        {
+                        @id = "fieldRubro-" + @i + "-actual",
+                        @class = "form-control",
+                        @type = "number",
+                        @min = 0,
+                        @oninvalid = "this.setCustomValidity('El monto actual debe ser un numero positivo')",
+                        @style = Model.AplicaRubro[i] ? "display:block" : "display:none",
+                        })
+                        @Html.HiddenFor(model => model.Rubros[i].MontoActual)
+                    </div>
+                </div>
+                }
+                <div class="row">
+                    <div class="form-group col-5 text-right">
+                        SubTotal
+                    </div>
+                    <div class="form-group col-3 text-center">
+                        Sumatoria Anterior
+                    </div>
+                    <div class="form-group col-3 text-center">
+                        Sumatoria Actual
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-5 text-right">
+                        Total Diferencia
+                    </div>
+                    <div class="form-group col-3 text-center">
+                        Muestra diferencia
+                    </div>
+                    <div class="form-group col-3 text-center">
+                        <input name="SubmitButton" class="btn btn-success btn-block" type="submit" value="Agregar periodo" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+
