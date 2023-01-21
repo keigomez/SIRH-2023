@@ -41,8 +41,6 @@ namespace SIRH.Logica
                 temp.IdEntidad = aux.PK_Especialidad;
                 temp.DesEspecialidad = aux.DesEspecialidad;
                 temp.IndEstEspecialidad = Convert.ToInt32(aux.IndEstadoEspecialidad);
-                     
-
                 resultado.Add(temp);
             }
             return resultado;

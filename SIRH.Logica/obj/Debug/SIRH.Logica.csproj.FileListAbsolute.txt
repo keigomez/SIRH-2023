@@ -283,3 +283,24 @@ C:\Users\ramir\Desktop\Inge\Proyecto 28\2023\SIRH\SIRH.Logica\obj\Debug\SIRH.Log
 C:\Users\ramir\Desktop\Inge\Proyecto 28\2023\SIRH\SIRH.Logica\obj\Debug\SIRH.Logica.csproj.CopyComplete
 C:\Users\ramir\Desktop\Inge\Proyecto 28\2023\SIRH\SIRH.Logica\obj\Debug\SIRH.Logica.dll
 C:\Users\ramir\Desktop\Inge\Proyecto 28\2023\SIRH\SIRH.Logica\obj\Debug\SIRH.Logica.pdb
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Logica\bin\Debug\SIRH.Logica.dll.config
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Logica\bin\Debug\SIRH.Logica.dll
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Logica\bin\Debug\SIRH.Logica.pdb
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Logica\bin\Debug\EntityFramework.dll
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Logica\bin\Debug\SIRH.Datos.dll
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Logica\bin\Debug\SIRH.DatosMarcasReloj.dll
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Logica\bin\Debug\SIRH.DTO.dll
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Logica\bin\Debug\EnvDTE.dll
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Logica\bin\Debug\EnvDTE80.dll
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Logica\bin\Debug\stdole.dll
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Logica\bin\Debug\SIRH.DatosMarcasReloj.pdb
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Logica\bin\Debug\SIRH.DatosMarcasReloj.dll.config
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Logica\bin\Debug\SIRH.Datos.pdb
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Logica\bin\Debug\SIRH.Datos.dll.config
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Logica\bin\Debug\SIRH.DTO.pdb
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Logica\bin\Debug\EntityFramework.xml
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Logica\obj\Debug\SIRH.Logica.csproj.AssemblyReference.cache
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Logica\obj\Debug\SIRH.Logica.csproj.CoreCompileInputs.cache
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Logica\obj\Debug\SIRH.Logica.csproj.CopyComplete
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Logica\obj\Debug\SIRH.Logica.dll
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Logica\obj\Debug\SIRH.Logica.pdb

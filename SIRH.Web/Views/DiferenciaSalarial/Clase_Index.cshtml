@@ -9,7 +9,7 @@
                     <div class="form-group col-5">
                         @Html.Label("Código de clase")
                         <span>:</span>
-                        @Html.TextBox("codigoclase", String.Empty, new { @onkeypress = "return IsNumeric(event,'clase', 'código de clase')", @class = "form-control" })
+                        @Html.TextBox("codigoclase", String.Empty, new { @class = "form-control", @onkeypress = "return IsNumeric(event,'clase', 'código de clase')" })
                     </div>
                 </div>
                 <div class="row">

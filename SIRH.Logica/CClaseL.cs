@@ -38,7 +38,7 @@ namespace SIRH.Logica
                 CClaseDTO temp = new CClaseDTO();
                 temp.IdEntidad = aux.PK_Clase;
                 temp.DesClase = aux.DesClase;
-                temp.IndEstClase = Convert.ToInt32(aux.IndEstadoClase);
+                temp.IndEstadoClase = Convert.ToInt32(aux.IndEstadoClase);
                 temp.IndCategoria = Convert.ToInt32(aux.IndCategoria);
                 resultado.Add(temp);
             }
@@ -51,7 +51,7 @@ namespace SIRH.Logica
             {
                 IdEntidad = entrada.PK_Clase,
                 DesClase = entrada.DesClase,
-                IndEstClase = (entrada.IndEstadoClase != null) ? Convert.ToInt32(entrada.IndEstadoClase) : Convert.ToInt32("0"),
+                IndEstadoClase = (entrada.IndEstadoClase != null) ? Convert.ToInt32(entrada.IndEstadoClase) : Convert.ToInt32("0"),
                 IndCategoria = (entrada.IndCategoria != null) ? Convert.ToInt32(entrada.IndCategoria) : Convert.ToInt32("0")
             };
         }

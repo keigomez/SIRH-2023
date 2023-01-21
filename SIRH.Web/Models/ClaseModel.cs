@@ -24,3 +24,4 @@ namespace SIRH.Web.Models
         public string NombreSearch { get; set; }
     }
 }
+

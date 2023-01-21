@@ -31,9 +31,7 @@
                                     <tr>
                                         <td>@(((Model.PaginaActual - 1) * 10) + cuenta)</td>
                                         <td>@item.IdEntidad</td>
-                                        <td>
-                                            @item.DesClase
-                                        </td>
+                                        <td>@item.DesClase</td>
                                         <td>@Html.ActionLink("Seleccionar", "", "DiferenciaSalarial", null, new { @class = "btn btn-outline-primary", @onclick = "return CargarDatoClase('" + item.IdEntidad + "-" + item.DesClase + "', 'clase'," + item.IndCategoria + ");" }) </td>
                                     </tr>
                                 }

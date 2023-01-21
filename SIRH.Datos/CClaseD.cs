@@ -110,16 +110,16 @@ namespace SIRH.Datos
 
             if(idClase != 0 && idClase != null)
             {
-                resultado = resultado.Where(Q => Q.PK_Clase == idClase && Q.IndEstadoClase == 1).ToList();
+                resultado = resultado.Where(Q => Q.PK_Clase == idClase /*&& Q.IndEstadoClase == 1*/).ToList();
             }
             if (nombreClase != "" && nombreClase != null)
             {
-                resultado = resultado.Where(Q => Q.DesClase.ToLower().Contains(nombreClase.ToLower()) && Q.IndEstadoClase == 1).ToList();
+                resultado = resultado.Where(Q => Q.DesClase.ToLower().Contains(nombreClase.ToLower()) /*&& Q.IndEstadoClase == 1*/).ToList();
             }
 
             return resultado;
         }
-
+       
         public CRespuestaDTO ListarClasesConFormato(string formato)
         {
             CRespuestaDTO respuesta;

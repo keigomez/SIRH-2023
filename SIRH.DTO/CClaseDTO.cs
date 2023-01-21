@@ -15,7 +15,7 @@ namespace SIRH.DTO
         public string DesClase { get; set; }
         [DataMember]
         [DisplayName("Estado")]
-        public int IndEstClase { get; set; }
+        public int IndEstadoClase { get; set; }
         [DataMember]
         [DisplayName("Categoria")]
         public int IndCategoria { get; set; }

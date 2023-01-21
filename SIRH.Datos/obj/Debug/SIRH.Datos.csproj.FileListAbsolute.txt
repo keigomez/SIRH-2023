@@ -126,3 +126,13 @@ C:\Users\ramir\Desktop\Inge\Proyecto 28\2023\SIRH\SIRH.Datos\obj\Debug\SIRH.Dato
 C:\Users\ramir\Desktop\Inge\Proyecto 28\2023\SIRH\SIRH.Datos\obj\Debug\SIRH.Datos.csproj.CopyComplete
 C:\Users\ramir\Desktop\Inge\Proyecto 28\2023\SIRH\SIRH.Datos\obj\Debug\SIRH.Datos.dll
 C:\Users\ramir\Desktop\Inge\Proyecto 28\2023\SIRH\SIRH.Datos\obj\Debug\SIRH.Datos.pdb
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Datos\bin\Debug\SIRH.Datos.dll.config
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Datos\bin\Debug\SIRH.Datos.dll
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Datos\bin\Debug\SIRH.Datos.pdb
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Datos\bin\Debug\SIRH.DTO.dll
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Datos\bin\Debug\SIRH.DTO.pdb
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Datos\obj\Debug\SIRH.Datos.csproj.AssemblyReference.cache
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Datos\obj\Debug\SIRH.Datos.csproj.CoreCompileInputs.cache
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Datos\obj\Debug\SIRH.Datos.csproj.CopyComplete
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Datos\obj\Debug\SIRH.Datos.dll
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.Datos\obj\Debug\SIRH.Datos.pdb
