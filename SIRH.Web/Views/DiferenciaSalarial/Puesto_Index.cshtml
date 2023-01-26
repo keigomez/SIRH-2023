@@ -1,0 +1,31 @@
+﻿@model SIRH.Web.Models.PuestoModel
+@{
+    using (Ajax.BeginForm("Puesto_Index", "DiferenciaSalarial", new AjaxOptions { UpdateTargetId = "target-puesto", HttpMethod = "POST", OnSuccess = "successDataPuesto", OnBegin = "beginDataPuesto" }))
+    {
+        <div class="card">
+            <h5 class="card-header">Parámetros de búsqueda:</h5>
+            <div class="card-body">
+                <div class="row">
+                    <div class="form-group col-5">
+                        @Html.Label("Código de puesto")
+                        <span>:</span>
+                        @Html.TextBox("codigoPuesto", String.Empty, new { @class = "form-control", @onkeypress = "return IsNumeric(event,'puesto', 'código de puesto')" })
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group col-3">
+                        <input type="submit" value="Buscar" id="btnBuscaPuesto" class="btn btn-primary" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-5">
+                        <div id="progressbarpuesto" class="loader" hidden></div>
+                    </div>
+                </div>
+                <div id="error-clase" class="alert alert-danger" role="alert" hidden></div>
+            </div>
+        </div>
+    }
+    <div id="target-puesto"></div>
+}

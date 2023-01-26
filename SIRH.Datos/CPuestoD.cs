@@ -200,6 +200,29 @@ namespace SIRH.Datos
             return resultado;
         }
 
+        public List<Puesto> CargarPuestosCodigo(string codigopuesto)
+        {
+            List<Puesto> resultado = new List<Puesto>();
+
+            var puesto = entidadBase.Puesto.Include("EstadoPuesto").Include("UbicacionAdministrativa.Presupuesto").Include("DetallePuesto").
+                                            Include("DetallePuesto.Clase").Include("DetallePuesto.Especialidad").
+                                            Include("DetallePuesto.OcupacionReal").ToList();
+            puesto = puesto.Where(Q => Q.CodPuesto == codigopuesto).ToList();
+           
+            if (codigopuesto != "")
+            {
+                puesto = puesto.Where(Q => Q.CodPuesto == codigopuesto).ToList();
+            }
+            
+
+            foreach (var item in puesto)
+            {
+                resultado.Add(item);
+            }
+
+            return resultado;
+        }
+
         public Puesto DetallePuestoPorCodigo(string codPuesto)
         {
             Puesto respuesta = new Puesto();

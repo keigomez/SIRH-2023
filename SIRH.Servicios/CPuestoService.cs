@@ -580,6 +580,12 @@ namespace SIRH.Servicios
                                                  List<DateTime> fechasEnvio) => new CPedimentoPuestoL().BuscarPedimentos(puesto, pedimento, fechasEnvio);
 
         public List<CBaseDTO> BuscarPedimentoCodigo(int pedimento) => new CPedimentoPuestoL().BuscarPedimentosCodigo(pedimento);
+
+        public List<CPuestoDTO> BuscarPuestoCodigoParams(string codpuesto)
+        {
+            CPuestoL logica = new CPuestoL();
+            return logica.BuscarPuestoCodigoParams(codpuesto);
+        }
     }
 
 }

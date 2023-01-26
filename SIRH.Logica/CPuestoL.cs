@@ -483,6 +483,26 @@ namespace SIRH.Logica
             return resultado;
         }
 
+        public List<CPuestoDTO> BuscarPuestoCodigoParams(string codpuesto)
+        {
+            List<CPuestoDTO> resultado = new List<CPuestoDTO>();
+
+            puestoDescarga = new CPuestoD(contexto);
+
+            var item = puestoDescarga.CargarPuestosCodigo(codpuesto);
+
+            foreach (var aux in item)
+            {
+                CPuestoDTO temp = new CPuestoDTO();
+                temp.CodPuesto = aux.CodPuesto;
+                temp.IdEntidad = aux.PK_Puesto;
+                temp.EstadoPuesto = new CEstadoPuestoDTO { IdEntidad = aux.EstadoPuesto.PK_EstadoPuesto };
+                temp.UbicacionAdministrativa = new CUbicacionAdministrativaDTO { IdEntidad = aux.UbicacionAdministrativa.PK_UbicacionAdministrativa };
+            }
+
+            return resultado;
+        }
+
         //INSERTADO EN ICPuestoService y CPuestoService (DEIVERT)
         public CPuestoDTO BuscarPuestoCodigo(string codPuesto)
         {

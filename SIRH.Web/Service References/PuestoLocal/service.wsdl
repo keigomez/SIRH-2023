@@ -1768,6 +1768,44 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ICPuestoService_BuscarPuestoCodigoParams_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ICPuestoService_BuscarPuestoCodigoParams_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsp:Policy wsu:Id="WSHttpBinding_ICPuestoService_DetallePuestoPorCodigo_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -3789,6 +3827,12 @@
   <wsdl:message name="ICPuestoService_BuscarPuestoParams_OutputMessage">
     <wsdl:part name="parameters" element="tns:BuscarPuestoParamsResponse" />
   </wsdl:message>
+  <wsdl:message name="ICPuestoService_BuscarPuestoCodigoParams_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarPuestoCodigoParams" />
+  </wsdl:message>
+  <wsdl:message name="ICPuestoService_BuscarPuestoCodigoParams_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarPuestoCodigoParamsResponse" />
+  </wsdl:message>
   <wsdl:message name="ICPuestoService_DetallePuestoPorCodigo_InputMessage">
     <wsdl:part name="parameters" element="tns:DetallePuestoPorCodigo" />
   </wsdl:message>
@@ -4241,6 +4285,10 @@
     <wsdl:operation name="BuscarPuestoParams">
       <wsdl:input wsaw:Action="http://tempuri.org/ICPuestoService/BuscarPuestoParams" message="tns:ICPuestoService_BuscarPuestoParams_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICPuestoService/BuscarPuestoParamsResponse" message="tns:ICPuestoService_BuscarPuestoParams_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPuestoCodigoParams">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICPuestoService/BuscarPuestoCodigoParams" message="tns:ICPuestoService_BuscarPuestoCodigoParams_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICPuestoService/BuscarPuestoCodigoParamsResponse" message="tns:ICPuestoService_BuscarPuestoCodigoParams_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DetallePuestoPorCodigo">
       <wsdl:input wsaw:Action="http://tempuri.org/ICPuestoService/DetallePuestoPorCodigo" message="tns:ICPuestoService_DetallePuestoPorCodigo_InputMessage" />
@@ -4911,6 +4959,17 @@
       </wsdl:input>
       <wsdl:output>
         <wsp:PolicyReference URI="#WSHttpBinding_ICPuestoService_BuscarPuestoParams_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPuestoCodigoParams">
+      <soap12:operation soapAction="http://tempuri.org/ICPuestoService/BuscarPuestoCodigoParams" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_ICPuestoService_BuscarPuestoCodigoParams_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_ICPuestoService_BuscarPuestoCodigoParams_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>

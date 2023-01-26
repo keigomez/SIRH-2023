@@ -112,6 +112,9 @@ namespace SIRH.Servicios
         CBaseDTO BuscarTituloFactorId(CTituloFactorDTO tituloFactor);
         [OperationContract]
         List<CPuestoDTO> BuscarPuestoParams(string codpuesto, int clase, int especialidad, int ocupacion);
+
+        [OperationContract]
+        List<CPuestoDTO> BuscarPuestoCodigoParams(string codpuesto); 
         [OperationContract]
         List<CBaseDTO> DetallePuestoPorCodigo(string codPuesto);
         [OperationContract]

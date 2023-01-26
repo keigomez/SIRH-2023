@@ -289,6 +289,7 @@
     <Compile Include="Models\MovimientoPuestoModel.cs" />
     <Compile Include="Models\OcupacionModel.cs" />
     <Compile Include="Models\PresupuestoModel.cs" />
+    <Compile Include="Models\PuestoModel.cs" />
     <Compile Include="Models\RutasARESEPModel.cs" />
     <Compile Include="Models\SeccionModel.cs" />
     <Compile Include="Models\UbicacionAdministrativaModel.cs" />
@@ -1331,6 +1332,8 @@
     <Content Include="Content\bootstrap-datepicker\css\bootstrap-datepicker.standalone.css.map" />
     <Content Include="Content\bootstrap-datepicker\css\bootstrap-datepicker3.css.map" />
     <Content Include="Content\bootstrap-datepicker\css\bootstrap-datepicker3.standalone.css.map" />
+    <Content Include="ClassDiagram1.cd" />
+    <Content Include="ClassDiagram2.cd" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\funciones-dialogos.js" />
     <Content Include="Scripts\funciones-generales.js" />
@@ -2939,6 +2942,8 @@
     <Content Include="Views\DiferenciaSalarial\_ResultadoBuscarDiferenciasSalariales.cshtml" />
     <Content Include="Views\DiferenciaSalarial\_VerPeriodos.cshtml" />
     <Content Include="Views\DiferenciaSalarial\_VerResumen.cshtml" />
+    <Content Include="Views\DiferenciaSalarial\Puesto_Index.cshtml" />
+    <Content Include="Views\DiferenciaSalarial\Puesto_Index_Result.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

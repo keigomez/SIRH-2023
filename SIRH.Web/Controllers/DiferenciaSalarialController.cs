@@ -186,6 +186,49 @@ namespace SIRH.Web.Controllers
             }
         }
 
+
+
+        public PartialViewResult Puesto_Index(string codigoPuesto, int? page)
+        {
+            Session["errorP"] = null;
+            try
+            {
+                PuestoModel modelo = new PuestoModel();
+
+                int paginaActual = page.HasValue ? page.Value : 1;
+
+                if (String.IsNullOrEmpty(codigoPuesto))
+                {
+                    return PartialView();
+                }
+                else
+                {
+                    modelo.CodigoSearch = codigoPuesto;
+                    
+                    int codigoEsp = String.IsNullOrEmpty(modelo.CodigoSearch) ? 0 : Convert.ToInt32(modelo.CodigoSearch);
+                    var puestos = servicioPuesto.BuscarPuestoCodigoParams(codigoEsp.ToString());
+                    modelo.TotalPuestos = puestos.Count();
+                    modelo.TotalPaginas = (int)Math.Ceiling((double)modelo.TotalPuestos / 10);
+                    modelo.PaginaActual = paginaActual;
+                    if ((((paginaActual - 1) * 10) + 10) > modelo.TotalPuestos)
+                    {
+                        modelo.Puesto = puestos.ToList().GetRange(((paginaActual - 1) * 10), (modelo.TotalPuestos) - (((paginaActual - 1) * 10))).ToList(); ;
+                    }
+                    else
+                    {
+                        modelo.Puesto = puestos.ToList().GetRange(((paginaActual - 1) * 10), 10).ToList(); ;
+                    }
+
+                    return PartialView("Puesto_Index_Result", modelo);
+                }
+            }
+            catch (Exception error)
+            {
+                ModelState.AddModelError("Busqueda", "Ha ocurrido un error a la hora de realizar la búsqueda, ponerse en contacto con el personal autorizado. \n\n");
+                return PartialView("_ErrorPuesto");
+            }
+        }
+
         #endregion
 
         #region POST

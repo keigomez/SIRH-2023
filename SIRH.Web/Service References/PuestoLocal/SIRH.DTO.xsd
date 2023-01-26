@@ -220,7 +220,9 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:CBaseDTO">
         <xs:sequence>
+          <xs:element minOccurs="0" name="DetalleCapacitacion" nillable="true" type="tns:ArrayOfCCalificacionCapacitacionDTO" />
           <xs:element minOccurs="0" name="DetalleObservaciones" nillable="true" type="tns:ArrayOfCCalificacionObservacionesDTO" />
+          <xs:element minOccurs="0" name="DetalleSeguimientos" nillable="true" type="tns:ArrayOfCDetalleCalificacionSeguimientoDTO" />
           <xs:element minOccurs="0" name="FecRige" type="xs:dateTime" />
           <xs:element minOccurs="0" name="FecVence" type="xs:dateTime" />
           <xs:element minOccurs="0" name="Funcionario" nillable="true" type="tns:CFuncionarioDTO" />
@@ -229,8 +231,10 @@
           <xs:element minOccurs="0" name="Nombramiento" nillable="true" type="tns:CNombramientoDTO" />
           <xs:element minOccurs="0" name="NumTipo" type="xs:int" />
           <xs:element minOccurs="0" name="Periodo" nillable="true" type="tns:CPeriodoCalificacionDTO" />
+          <xs:element minOccurs="0" name="PorAutoEvaluacion" type="xs:decimal" />
           <xs:element minOccurs="0" name="Puesto" nillable="true" type="tns:CPuestoDTO" />
           <xs:element minOccurs="0" name="indDepartamento" type="xs:int" />
+          <xs:element minOccurs="0" name="indDetallePuesto" type="xs:int" />
           <xs:element minOccurs="0" name="indDireccion" type="xs:int" />
           <xs:element minOccurs="0" name="indDivision" type="xs:int" />
           <xs:element minOccurs="0" name="indOcupacion" type="xs:int" />
@@ -240,25 +244,39 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="CCalificacionNombramientoFuncionarioDTO" nillable="true" type="tns:CCalificacionNombramientoFuncionarioDTO" />
-  <xs:complexType name="ArrayOfCCalificacionObservacionesDTO">
+  <xs:complexType name="ArrayOfCCalificacionCapacitacionDTO">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="CCalificacionObservacionesDTO" nillable="true" type="tns:CCalificacionObservacionesDTO" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CCalificacionCapacitacionDTO" nillable="true" type="tns:CCalificacionCapacitacionDTO" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfCCalificacionObservacionesDTO" nillable="true" type="tns:ArrayOfCCalificacionObservacionesDTO" />
-  <xs:complexType name="CCalificacionObservacionesDTO">
+  <xs:element name="ArrayOfCCalificacionCapacitacionDTO" nillable="true" type="tns:ArrayOfCCalificacionCapacitacionDTO" />
+  <xs:complexType name="CCalificacionCapacitacionDTO">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:CBaseDTO">
         <xs:sequence>
-          <xs:element minOccurs="0" name="CalificacionFuncionarioDTO" nillable="true" type="tns:CCalificacionNombramientoFuncionarioDTO" />
-          <xs:element minOccurs="0" name="FecRegistro" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CalificacionFuncionario" nillable="true" type="tns:CCalificacionNombramientoFuncionarioDTO" />
+          <xs:element minOccurs="0" name="DesCapacitacion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DesLinea" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DesObjetivos" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DesTemas" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="IndEstado" type="xs:int" />
-          <xs:element minOccurs="0" name="Observacion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TipoPP" nillable="true" type="tns:CTipoPoliticaPublicaDTO" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="CCalificacionObservacionesDTO" nillable="true" type="tns:CCalificacionObservacionesDTO" />
+  <xs:element name="CCalificacionCapacitacionDTO" nillable="true" type="tns:CCalificacionCapacitacionDTO" />
+  <xs:complexType name="CTipoPoliticaPublicaDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CBaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DescripcionTipoPP" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiglaTipoPP" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CTipoPoliticaPublicaDTO" nillable="true" type="tns:CTipoPoliticaPublicaDTO" />
   <xs:complexType name="CCantonDTO">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:CBaseDTO">
@@ -310,7 +328,7 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="DesClase" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="IndCategoria" type="xs:int" />
-          <xs:element minOccurs="0" name="IndEstClase" type="xs:int" />
+          <xs:element minOccurs="0" name="IndEstadoClase" type="xs:int" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -458,13 +476,24 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="CodObjGasto" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="DesObjGasto" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Partida" nillable="true" type="tns:CPartidaDTO" />
           <xs:element minOccurs="0" name="SubPartida" nillable="true" type="tns:CSubPartidaDTO" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="CObjetoGastoDTO" nillable="true" type="tns:CObjetoGastoDTO" />
+  <xs:complexType name="CSubPartidaDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CBaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CodSubPartida" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DesSubPartida" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Partida" nillable="true" type="tns:CPartidaDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CSubPartidaDTO" nillable="true" type="tns:CSubPartidaDTO" />
   <xs:complexType name="CPartidaDTO">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:CBaseDTO">
@@ -887,6 +916,7 @@
           <xs:element minOccurs="0" name="DetallePuesto" nillable="true" type="tns:CDetallePuestoDTO" />
           <xs:element minOccurs="0" name="EstadoPuesto" nillable="true" type="tns:CEstadoPuestoDTO" />
           <xs:element minOccurs="0" name="EstudioPuesto" nillable="true" type="tns:CEstudioPuestoDTO" />
+          <xs:element minOccurs="0" name="FamiliaPuesto" nillable="true" type="tns:CFamiliaPuestoDTO" />
           <xs:element minOccurs="0" name="NivelOcupacional" type="xs:int" />
           <xs:element minOccurs="0" name="Nombramiento" nillable="true" type="tns:CNombramientoDTO" />
           <xs:element minOccurs="0" name="ObservacionesPuesto" nillable="true" type="xs:string" />
@@ -1138,6 +1168,8 @@
           <xs:element minOccurs="0" name="DescripcionCapacitacion" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="EntidadEducativa" nillable="true" type="tns:CEntidadEducativaDTO" />
           <xs:element minOccurs="0" name="Estado" type="xs:int" />
+          <xs:element minOccurs="0" name="FecRegistro" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FecVence" type="xs:dateTime" />
           <xs:element minOccurs="0" name="FechaFinal" type="xs:dateTime" />
           <xs:element minOccurs="0" name="FechaInicio" type="xs:dateTime" />
           <xs:element minOccurs="0" name="FormacionAcademica" nillable="true" type="tns:CFormacionAcademicaDTO" />
@@ -1157,6 +1189,8 @@
       <xs:extension base="tns:CBaseDTO">
         <xs:sequence>
           <xs:element minOccurs="0" name="DescripcionEntidad" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Estado" type="xs:int" />
+          <xs:element minOccurs="0" name="NombreTipo" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="TipoEntidad" type="xs:int" />
         </xs:sequence>
       </xs:extension>
@@ -2124,11 +2158,13 @@
       <xs:extension base="tns:CBaseDTO">
         <xs:sequence>
           <xs:element minOccurs="0" name="CantidadDias" type="xs:decimal" />
+          <xs:element minOccurs="0" name="FechaActualizacion" type="xs:dateTime" />
           <xs:element minOccurs="0" name="FechaRige" type="xs:dateTime" />
           <xs:element minOccurs="0" name="FechaVence" type="xs:dateTime" />
           <xs:element minOccurs="0" name="Fuente" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Motivo" type="xs:int" />
           <xs:element minOccurs="0" name="Observaciones" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegistroVacaciones" nillable="true" type="tns:CRegistroVacacionesDTO" />
           <xs:element minOccurs="0" name="SolReintegro" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
@@ -2145,6 +2181,7 @@
           <xs:element minOccurs="0" name="FechaVence" type="xs:dateTime" />
           <xs:element minOccurs="0" name="Fuente" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="NumeroTransaccion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Periodo" nillable="true" type="tns:CPeriodoVacacionesDTO" />
           <xs:element minOccurs="0" name="TipoTransaccion" type="xs:int" />
         </xs:sequence>
       </xs:extension>
@@ -2549,27 +2586,18 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="AnioPresupuesto" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Detalle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FechaDecreto" type="xs:dateTime" />
           <xs:element minOccurs="0" name="MontoComponente" type="xs:decimal" />
+          <xs:element minOccurs="0" name="NumeroComponentePresupuestario" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ObjetoGasto" nillable="true" type="tns:CObjetoGastoDTO" />
           <xs:element minOccurs="0" name="Programa" nillable="true" type="tns:CProgramaDTO" />
           <xs:element minOccurs="0" name="TipoMovimiento" nillable="true" type="tns:CCatMovimientoPresupuestoDTO" />
+          <xs:element minOccurs="0" name="TituloComponente" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="CComponentePresupuestarioDTO" nillable="true" type="tns:CComponentePresupuestarioDTO" />
-  <xs:complexType name="CSubPartidaDTO">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:CBaseDTO">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="CodSubPartida" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="DesSubPartida" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Partida" nillable="true" type="tns:CPartidaDTO" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="CSubPartidaDTO" nillable="true" type="tns:CSubPartidaDTO" />
   <xs:complexType name="CBoletaPrestamoDTO">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:CBaseDTO">
@@ -2746,7 +2774,7 @@
           <xs:element minOccurs="0" name="Explicacion" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="FechaActualizacion" type="xs:dateTime" />
           <xs:element minOccurs="0" name="FechaRige" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="FechaVence" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FechaVence" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="Horas" type="xs:decimal" />
           <xs:element minOccurs="0" name="MesProceso" type="xs:int" />
           <xs:element minOccurs="0" name="MontoDeduccion" type="xs:decimal" />
@@ -2868,33 +2896,6 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="CActividadFuncionarioDTO" nillable="true" type="tns:CActividadFuncionarioDTO" />
-  <xs:complexType name="CCalificacionCapacitacionDTO">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:CBaseDTO">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="CalificacionNombramientoDTO" nillable="true" type="tns:CCalificacionNombramientoDTO" />
-          <xs:element minOccurs="0" name="DesCapacitacion" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="DesLinea" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="DesObjetivos" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="DesTemas" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="IndEstado" type="xs:int" />
-          <xs:element minOccurs="0" name="TipoPP" nillable="true" type="tns:CTipoPoliticaPublicaDTO" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="CCalificacionCapacitacionDTO" nillable="true" type="tns:CCalificacionCapacitacionDTO" />
-  <xs:complexType name="CTipoPoliticaPublicaDTO">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:CBaseDTO">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="DescripcionTipoPP" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="SiglaTipoPP" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="CTipoPoliticaPublicaDTO" nillable="true" type="tns:CTipoPoliticaPublicaDTO" />
   <xs:complexType name="CCalificacionEncargadoDTO">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:CBaseDTO">
@@ -2907,6 +2908,19 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="CCalificacionEncargadoDTO" nillable="true" type="tns:CCalificacionEncargadoDTO" />
+  <xs:complexType name="CCalificacionObservacionesDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CBaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CalificacionFuncionarioDTO" nillable="true" type="tns:CCalificacionNombramientoFuncionarioDTO" />
+          <xs:element minOccurs="0" name="FecRegistro" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IndEstado" type="xs:int" />
+          <xs:element minOccurs="0" name="Observacion" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CCalificacionObservacionesDTO" nillable="true" type="tns:CCalificacionObservacionesDTO" />
   <xs:complexType name="CCatMetaEstadoDTO">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:CBaseDTO">
@@ -2942,6 +2956,7 @@
           <xs:element minOccurs="0" name="FecRegistro" type="xs:dateTime" />
           <xs:element minOccurs="0" name="Funcionario" nillable="true" type="tns:CFuncionarioDTO" />
           <xs:element minOccurs="0" name="IndEsTeletrabajable" type="xs:int" />
+          <xs:element minOccurs="0" name="IndModificable" type="xs:boolean" />
           <xs:element minOccurs="0" name="JefeInmediato" nillable="true" type="tns:CFuncionarioDTO" />
           <xs:element minOccurs="0" name="ListaEvidencias" nillable="true" type="tns:ArrayOfCMetaIndividualEvidenciaDTO" />
           <xs:element minOccurs="0" name="ListaInforme" nillable="true" type="tns:ArrayOfCMetaIndividualInformeDTO" />
@@ -2949,6 +2964,7 @@
           <xs:element minOccurs="0" name="NumIndicador" type="xs:decimal" />
           <xs:element minOccurs="0" name="Periodo" nillable="true" type="tns:CPeriodoCalificacionDTO" />
           <xs:element minOccurs="0" name="PorPeso" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PorPesoNuevo" type="xs:decimal" />
           <xs:element minOccurs="0" name="Prioridad" nillable="true" type="tns:CCatMetaPrioridadDTO" />
           <xs:element minOccurs="0" name="TipoIndicador" nillable="true" type="tns:CTipoIndicadorMetaDTO" />
         </xs:sequence>
@@ -2966,6 +2982,7 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:CBaseDTO">
         <xs:sequence>
+          <xs:element minOccurs="0" name="DesArchivo" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="DesEnlace" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="DesEvidencia" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="DocAdjunto" nillable="true" type="xs:base64Binary" />
@@ -3048,6 +3065,24 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="CTipoIndicadorMetaDTO" nillable="true" type="tns:CTipoIndicadorMetaDTO" />
+  <xs:complexType name="CDetalleCalificacionSeguimientoDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CBaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Calificacion" nillable="true" type="tns:CCalificacionNombramientoFuncionarioDTO" />
+          <xs:element minOccurs="0" name="DesComentario" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DesEvidencia" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DesOportunidadMejora" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DesPlanAccion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Estado" nillable="true" type="tns:CCatMetaEstadoDTO" />
+          <xs:element minOccurs="0" name="FecCierreAccion" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FecRegistro" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="JefeInmediato" nillable="true" type="tns:CFuncionarioDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CDetalleCalificacionSeguimientoDTO" nillable="true" type="tns:CDetalleCalificacionSeguimientoDTO" />
   <xs:complexType name="CPrestacionLegalDTO">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:CBaseDTO">
@@ -3227,9 +3262,11 @@
           <xs:element minOccurs="0" name="EstadoCivil" nillable="true" type="tns:CHistorialEstadoCivilDTO" />
           <xs:element minOccurs="0" name="Expediente" nillable="true" type="tns:CExpedienteFuncionarioDTO" />
           <xs:element minOccurs="0" name="Funcionario" nillable="true" type="tns:CFuncionarioDTO" />
+          <xs:element minOccurs="0" name="IndPropiedad" type="xs:int" />
           <xs:element minOccurs="0" name="Nombramiento" nillable="true" type="tns:CNombramientoDTO" />
           <xs:element minOccurs="0" name="Presupuesto" nillable="true" type="tns:CPresupuestoDTO" />
           <xs:element minOccurs="0" name="PrimerSalario" nillable="true" type="tns:CDesgloseSalarialDTO" />
+          <xs:element minOccurs="0" name="Puesto" nillable="true" type="tns:CPuestoDTO" />
           <xs:element minOccurs="0" name="Seccion" nillable="true" type="tns:CSeccionDTO" />
           <xs:element minOccurs="0" name="UbiContrato" nillable="true" type="tns:CUbicacionPuestoDTO" />
           <xs:element minOccurs="0" name="UbiTrabajo" nillable="true" type="tns:CUbicacionPuestoDTO" />
@@ -3251,6 +3288,7 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="ClaseCargo" nillable="true" type="tns:CClaseDTO" />
           <xs:element minOccurs="0" name="EspecialidadCargo" nillable="true" type="tns:CEspecialidadDTO" />
+          <xs:element minOccurs="0" name="Estrato" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="JefaturaInmediata" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="JefaturaSuperiorInmediata" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="NombreCargo" nillable="true" type="xs:string" />
@@ -3258,6 +3296,7 @@
           <xs:element minOccurs="0" name="Proposito" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="SeccionCargo" nillable="true" type="tns:CSeccionDTO" />
           <xs:element minOccurs="0" name="SubespecialidadCargo" nillable="true" type="tns:CSubEspecialidadDTO" />
+          <xs:element minOccurs="0" name="UbicacionOrganizacional" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -3419,6 +3458,427 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="CEvidenciaGrupoOcupacionalDTO" nillable="true" type="tns:CEvidenciaGrupoOcupacionalDTO" />
+  <xs:complexType name="CCatCampoDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CBaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DesCampo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DesColumna" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DesPantalla" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DesTabla" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CCatCampoDTO" nillable="true" type="tns:CCatCampoDTO" />
+  <xs:complexType name="CSolicitudCambioDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CBaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DesObsRecibe" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DesObsRemite" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Detalle" nillable="true" type="tns:ArrayOfCDetalleSolicitudCambioDTO" />
+          <xs:element minOccurs="0" name="Estado" type="xs:int" />
+          <xs:element minOccurs="0" name="FecAtencion" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FecSolicitud" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Funcionario" nillable="true" type="tns:CFuncionarioDTO" />
+          <xs:element minOccurs="0" name="NumSolicitud" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UsuarioRecibe" nillable="true" type="tns:CUsuarioDTO" />
+          <xs:element minOccurs="0" name="UsuarioRemite" nillable="true" type="tns:CUsuarioDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CSolicitudCambioDTO" nillable="true" type="tns:CSolicitudCambioDTO" />
+  <xs:complexType name="ArrayOfCDetalleSolicitudCambioDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CDetalleSolicitudCambioDTO" nillable="true" type="tns:CDetalleSolicitudCambioDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCDetalleSolicitudCambioDTO" nillable="true" type="tns:ArrayOfCDetalleSolicitudCambioDTO" />
+  <xs:complexType name="CDetalleSolicitudCambioDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CBaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Aplica" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Campo" nillable="true" type="tns:CCatCampoDTO" />
+          <xs:element minOccurs="0" name="DatoModificar" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DatoOriginal" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DesObservaciones" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Estado" type="xs:int" />
+          <xs:element minOccurs="0" name="Solicitud" nillable="true" type="tns:CSolicitudCambioDTO" />
+          <xs:element minOccurs="0" name="ValorModificar" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CDetalleSolicitudCambioDTO" nillable="true" type="tns:CDetalleSolicitudCambioDTO" />
+  <xs:complexType name="CParametrosDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CBaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="nomParametro" nillable="true" type="xs:string" />
+          <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valoresBuscar" nillable="true" type="q4:ArrayOfstring" />
+          <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valoresDescartar" nillable="true" type="q5:ArrayOfstring" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CParametrosDTO" nillable="true" type="tns:CParametrosDTO" />
+  <xs:complexType name="CTemp_EnviarCorreoDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CBaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Cedula" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Correo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DetalleMotivo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FechaEnvio" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IdMotivo" type="xs:int" />
+          <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CTemp_EnviarCorreoDTO" nillable="true" type="tns:CTemp_EnviarCorreoDTO" />
+  <xs:complexType name="CCarreraProfesionalDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CBaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AnnoCarrera" type="xs:int" />
+          <xs:element minOccurs="0" name="AnnoExperienciaEst" type="xs:int" />
+          <xs:element minOccurs="0" name="AnnoExperienciaPR" type="xs:int" />
+          <xs:element minOccurs="0" name="Aprovechamiento" type="xs:int" />
+          <xs:element minOccurs="0" name="AprovechamientoEst" type="xs:int" />
+          <xs:element minOccurs="0" name="CalificacionServicio" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Cedula" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Clase" type="xs:int" />
+          <xs:element minOccurs="0" name="Codigo" type="xs:int" />
+          <xs:element minOccurs="0" name="Curso1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Curso2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Curso3" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Curso4" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Curso5" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Curso6" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Curso7" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Curso8" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Departamento" type="xs:int" />
+          <xs:element minOccurs="0" name="Direccion" type="xs:int" />
+          <xs:element minOccurs="0" name="Division" type="xs:int" />
+          <xs:element minOccurs="0" name="ExcAprovechamientoEst" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ExcParticipacionEst" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ExplicacionOtros" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FecResolucion" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FecRigePago" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Fecha" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Grado" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HorasAprovechamiento" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HorasAprovechamientoEst" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HorasExcAprovechamiento" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HorasExcParticipacion" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HorasInstruccion" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HorasInstruccionEst" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HorasParticipacion" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HorasParticipacionEst" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="Marca" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MesCarrera" type="xs:int" />
+          <xs:element minOccurs="0" name="Movimiento" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Nivel" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NumResolucion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Observacion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Observacion1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Observacion2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Observacion3" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PSS1Feri" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PSS1Feve" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PSS2Feri" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PSS2Feve" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PSS3Feri" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PSS3Feve" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Participacion" type="xs:int" />
+          <xs:element minOccurs="0" name="ParticipacionEst" type="xs:int" />
+          <xs:element minOccurs="0" name="ParticipacionInstruccion" type="xs:int" />
+          <xs:element minOccurs="0" name="ParticipacionInstruccionEst" type="xs:int" />
+          <xs:element minOccurs="0" name="Periodo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PtosAprovechamiento" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PtosAprovechamientoEst" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PtosExperienciaEst" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PtosExperienciaPR" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PtosGrado" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PtosGradoEst" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PtosInstruccion" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PtosInstruccionEst" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PtosOtroEst" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PtosOtros" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PtosParticipacion" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PtosParticipacionEst" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Puesto" type="xs:int" />
+          <xs:element minOccurs="0" name="TotalPuntos" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Ubicacion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ValorPunto" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CCarreraProfesionalDTO" nillable="true" type="tns:CCarreraProfesionalDTO" />
+  <xs:complexType name="CCursoDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CBaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Cedula" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FecFinal" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FecRige" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="ImpartidoEn" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NombreCurso" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Resolucion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TipoCurso" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalHoras" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CCursoDTO" nillable="true" type="tns:CCursoDTO" />
+  <xs:complexType name="CDetallePuntosDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CBaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AnnosExpProfesional" type="xs:int" />
+          <xs:element minOccurs="0" name="CursosAprovechamiento" type="xs:int" />
+          <xs:element minOccurs="0" name="CursosAprovechamientoLey" type="xs:int" />
+          <xs:element minOccurs="0" name="CursosInstruccion" type="xs:int" />
+          <xs:element minOccurs="0" name="CursosParticipacion" type="xs:int" />
+          <xs:element minOccurs="0" name="CursosParticipacionLey" type="xs:int" />
+          <xs:element minOccurs="0" name="Grado" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HorasAprovechamiento" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HorasAprovechamientoLey" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HorasExcAprovechamiento" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HorasExcAprovechamientoLey" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HorasExcParticipacion" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HorasExcParticipacionLey" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HorasInstruccion" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HorasParticipacion" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HorasParticipacionLey" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PuntosAdicionales" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PuntosAprovechamiento" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PuntosAprovechamientoLey" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PuntosExpProfesional" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PuntosGrado" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PuntosInstruccion" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PuntosParticipacion" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PuntosParticipacionLey" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TotalPuntos" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ValorPunto" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CDetallePuntosDTO" nillable="true" type="tns:CDetallePuntosDTO" />
+  <xs:complexType name="CPuntosDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CBaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AnnoCarrera" type="xs:int" />
+          <xs:element minOccurs="0" name="AnnoExpEst" type="xs:decimal" />
+          <xs:element minOccurs="0" name="AnnoExpPR" type="xs:int" />
+          <xs:element minOccurs="0" name="Aprovechamiento" type="xs:int" />
+          <xs:element minOccurs="0" name="AprovechamientoEst" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CAprovechamiento" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CInstruccion" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CParticipacion" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CalificacionEst" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CalificacionServicio" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Cedula" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExcAprEst" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ExcParEst" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ExpDoc" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ExplOtros" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FecResolucion" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FecRigePago" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Fecha" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Grado" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HoraAprEst" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HoraParEst" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HorasAprovechamiento" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HorasInstruccion" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HorasParticipacion" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HsExcApr" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HsExcPar" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="MesCarrera" type="xs:int" />
+          <xs:element minOccurs="0" name="Movimiento" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Nivel" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NumResolucion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Observacion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Observacion1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Observacion2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Observacion3" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Participacion" type="xs:int" />
+          <xs:element minOccurs="0" name="ParticipacionEst" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ParticipacionInstruccion" type="xs:int" />
+          <xs:element minOccurs="0" name="Periodo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PtosAprEst" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PtosAprovechamiento" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PtosExpDoc" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PtosExpEst" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PtosExpPR" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PtosGrEst" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PtosGrado" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PtosInstruccion" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PtosOrgInt" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PtosOtros" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PtosOtrosEst" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PtosParEst" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PtosParticipacion" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PtosPublicacion" type="xs:decimal" />
+          <xs:element minOccurs="0" name="RigeEst" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TotalPuntos" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ValorPunto" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CPuntosDTO" nillable="true" type="tns:CPuntosDTO" />
+  <xs:complexType name="CDecretoDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CBaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FechaDecreto" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="NumeroDecreto" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ObservacionDecreto" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TituloDecreto" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CDecretoDTO" nillable="true" type="tns:CDecretoDTO" />
+  <xs:complexType name="CDetalleRubroDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CBaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ComponenteSalarial" nillable="true" type="tns:CComponenteSalarialDTO" />
+          <xs:element minOccurs="0" name="DetalleDiferenciaSalarial" nillable="true" type="tns:CDetalleDiferenciaSalarialDTO" />
+          <xs:element minOccurs="0" name="MontoActual" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="MontoAnterior" nillable="true" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CDetalleRubroDTO" nillable="true" type="tns:CDetalleRubroDTO" />
+  <xs:complexType name="CDetalleDiferenciaSalarialDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CBaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DiferenciaSalarial" nillable="true" type="tns:CDiferenciaSalarialDTO" />
+          <xs:element minOccurs="0" name="FecFinal" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FecInicio" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PorcentajeRenta" nillable="true" type="tns:CPorcentajeRentaDTO" />
+          <xs:element minOccurs="0" name="PorcentajeSalarioEscolar" nillable="true" type="tns:CPorcentajeSalarioEscolarDTO" />
+          <xs:element minOccurs="0" name="TotalAguinaldo" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="TotalDeduccionesObrero" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="TotalDeduccionesPatronal" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="TotalDiferencia" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="TotalRenta" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="TotalSalarioEscolar" nillable="true" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CDetalleDiferenciaSalarialDTO" nillable="true" type="tns:CDetalleDiferenciaSalarialDTO" />
+  <xs:complexType name="CDiferenciaSalarialDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CBaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Clase" nillable="true" type="tns:CClaseDTO" />
+          <xs:element minOccurs="0" name="Especialidad" nillable="true" type="tns:CEspecialidadDTO" />
+          <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="FecRegistro" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Funcionario" nillable="true" type="tns:CFuncionarioDTO" />
+          <xs:element minOccurs="0" name="Puesto" nillable="true" type="tns:CPuestoDTO" />
+          <xs:element minOccurs="0" name="TotalAPagar" nillable="true" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CDiferenciaSalarialDTO" nillable="true" type="tns:CDiferenciaSalarialDTO" />
+  <xs:complexType name="CPorcentajeRentaDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CBaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FecFinal" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FecInicio" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PorcRenta" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="RangoFinal" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="RangoInicial" nillable="true" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CPorcentajeRentaDTO" nillable="true" type="tns:CPorcentajeRentaDTO" />
+  <xs:complexType name="CPorcentajeSalarioEscolarDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CBaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FecFinal" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FecInicio" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="NumResolucion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PorcEscolar" nillable="true" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CPorcentajeSalarioEscolarDTO" nillable="true" type="tns:CPorcentajeSalarioEscolarDTO" />
+  <xs:complexType name="CDetalleDeduccionesDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CBaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CatalogoTipoDeduccion" nillable="true" type="tns:CCatalogoTipoDeduccionDTO" />
+          <xs:element minOccurs="0" name="DetalleDiferenciaSalarial" nillable="true" type="tns:CDetalleDiferenciaSalarialDTO" />
+          <xs:element minOccurs="0" name="FecRegistro" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CDetalleDeduccionesDTO" nillable="true" type="tns:CDetalleDeduccionesDTO" />
+  <xs:complexType name="CCatalogoTipoDeduccionDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CBaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FecFinal" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FecInicio" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TipoDeduccion" nillable="true" type="tns:CTipoDeduccionDTO" />
+          <xs:element minOccurs="0" name="TotalPorcRubros" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CCatalogoTipoDeduccionDTO" nillable="true" type="tns:CCatalogoTipoDeduccionDTO" />
+  <xs:complexType name="CRubroDeduccionDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CBaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CatalogoRubroDeduccion" nillable="true" type="tns:CCatalogoRubroDeduccionDTO" />
+          <xs:element minOccurs="0" name="CatalogoTipoDeduccion" nillable="true" type="tns:CCatalogoTipoDeduccionDTO" />
+          <xs:element minOccurs="0" name="PorcRubro" nillable="true" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CRubroDeduccionDTO" nillable="true" type="tns:CRubroDeduccionDTO" />
+  <xs:complexType name="CCatalogoRubroDeduccionDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CBaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CCatalogoRubroDeduccionDTO" nillable="true" type="tns:CCatalogoRubroDeduccionDTO" />
   <xs:complexType name="ArrayOfCDetallePrestacionAfiliacionDTO">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="CDetallePrestacionAfiliacionDTO" nillable="true" type="tns:CDetallePrestacionAfiliacionDTO" />
@@ -3510,12 +3970,29 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfCFacturaDesarraigoDTO" nillable="true" type="tns:ArrayOfCFacturaDesarraigoDTO" />
-  <xs:complexType name="ArrayOfCCalificacionCapacitacionDTO">
+  <xs:complexType name="CFamiliaPuestoDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CBaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DesFamilia" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DesObservaciones" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CFamiliaPuestoDTO" nillable="true" type="tns:CFamiliaPuestoDTO" />
+  <xs:complexType name="ArrayOfCCalificacionObservacionesDTO">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="CCalificacionCapacitacionDTO" nillable="true" type="tns:CCalificacionCapacitacionDTO" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CCalificacionObservacionesDTO" nillable="true" type="tns:CCalificacionObservacionesDTO" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfCCalificacionCapacitacionDTO" nillable="true" type="tns:ArrayOfCCalificacionCapacitacionDTO" />
+  <xs:element name="ArrayOfCCalificacionObservacionesDTO" nillable="true" type="tns:ArrayOfCCalificacionObservacionesDTO" />
+  <xs:complexType name="ArrayOfCDetalleCalificacionSeguimientoDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CDetalleCalificacionSeguimientoDTO" nillable="true" type="tns:CDetalleCalificacionSeguimientoDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCDetalleCalificacionSeguimientoDTO" nillable="true" type="tns:ArrayOfCDetalleCalificacionSeguimientoDTO" />
   <xs:simpleType name="GeneroEnum">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Masculino">
