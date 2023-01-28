@@ -169,5 +169,11 @@ namespace SIRH.Servicios
         {
             return new CCatalogoRubroDeduccionL().ObtenerCatalogoRubrosDeduccion();
         }
+
+        public CBaseDTO BuscaFuncionarioPorID(string id)
+        {
+            CFuncionarioL logica = new CFuncionarioL();
+            return logica.BuscaFuncionarioPorID(id);
+        }
     }
 }

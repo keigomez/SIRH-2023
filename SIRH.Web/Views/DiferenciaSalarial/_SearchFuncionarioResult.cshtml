@@ -1,0 +1,45 @@
+﻿@model SIRH.Web.ViewModels.FormularioDiferenciaSalarialVM
+@{
+    if (Model != null)
+    {
+        using (Ajax.BeginForm("SearchFuncionario", new AjaxOptions
+        {
+            HttpMethod = "POST",
+            UpdateTargetId = "formulario",
+            InsertionMode = InsertionMode.Replace,
+            OnBegin = "BeginSearchFuncionario",
+            OnComplete = "CompleteSearchFuncionario",
+            OnSuccess = "SuccessSearchFuncionario",
+            OnFailure = "SuccessSearchFuncionario"
+        }))
+        {
+            @Html.ValidationSummary(true)
+            <div id="formulario">
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Información del Funcionario</strong>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-hover" id="datos_funcionario">
+                            <tr>
+                                <td>
+                                    <strong>@Html.LabelFor(model => model.Funcionario.Cedula): </strong>@Html.DisplayFor(model => model.Funcionario.Cedula)
+                                    @Html.HiddenFor(model => model.Funcionario.Cedula)
+                                </td>
+                                <td>
+                                    <strong>@Html.LabelFor(model => model.Funcionario.Nombre): </strong>@Model.Funcionario.Nombre @Model.Funcionario.PrimerApellido @Model.Funcionario.SegundoApellido
+                                    @Html.HiddenFor(model => model.Funcionario.Nombre)
+                                    @Html.HiddenFor(model => model.Funcionario.PrimerApellido)
+                                    @Html.HiddenFor(model => model.Funcionario.SegundoApellido)
+                                </td>
+
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+}
+

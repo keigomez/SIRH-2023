@@ -229,6 +229,34 @@ namespace SIRH.Web.Controllers
             }
         }
 
+
+        //GET: /DiferenciaSalarial/SearchFuncionario
+        public ActionResult SearchFuncionario()
+        {
+            context.IniciarSesionModulo(Session, principal.Identity.Name, Convert.ToInt32(EModulosHelper.DiferenciaSalarial), 0);
+
+            if (Session["Perfil_" + Convert.ToInt32(EModulosHelper.DiferenciaSalarial)].ToString().StartsWith("Error"))
+            {
+                return RedirectToAction("Index", "Error", new { modulo = Convert.ToInt32(EModulosHelper.DiferenciaSalarial) });
+            }
+            else
+            {
+                if (Convert.ToBoolean(Session["Administrador_Global"]) ||
+                    Convert.ToBoolean(Session["Administrador_" + Convert.ToInt32(EModulosHelper.DiferenciaSalarial)]) ||
+                    Session[CAccesoWeb.GenerarCadenaPermiso(EModulosHelper.DiferenciaSalarial, Convert.ToInt32(ENivelesDiferenciaSalarial.Operativo))] != null)
+                {
+
+                    FormularioDiferenciaSalarialVM model = new FormularioDiferenciaSalarialVM();
+
+                    return View(model);
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Error", new { modulo = Convert.ToInt32(EModulosHelper.ComponentePresupuestario) });
+                }
+            }
+        }
+
         #endregion
 
         #region POST
@@ -768,6 +796,57 @@ namespace SIRH.Web.Controllers
             catch (Exception)
             {
                 return PartialView("_ErrorEstudioPuesto");
+            }
+        }
+
+        //POST: /DiferenciaSalarial/SearchFuncionario
+
+        [HttpPost]
+        public ActionResult SearchFuncionario(FormularioDiferenciaSalarialVM model)
+        {
+            try
+            {
+ 
+                // VALIDA CAMPOS DEL FORMULARIO (QUE NO ESTÉN VACÍOS)
+                if (model.Funcionario.Cedula != null)
+                {
+
+                    // LLAMA A LOS DATOS DE UN SERVICIO WEB (BD)   
+                    var datos = servicioDiferenciaSalarial.BuscaFuncionarioPorID(model.Funcionario.Cedula);
+
+                    if (datos.GetType() != typeof(CErrorDTO))
+                    {
+
+                        model.Funcionario = (CFuncionarioDTO)datos;
+
+
+                        Session["Funcionario"] = model;
+                        return PartialView("_SearchFuncionarioResult", model);
+
+                    }
+                    else
+                    {
+                        //GENERACIÓN DE ERRORES
+                        ModelState.AddModelError("Datos", ((CErrorDTO)datos).MensajeError);
+                        throw new Exception("Busqueda");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("Datos", "Debe seleccionar el parámetro de búsqueda establecido.");
+                    throw new Exception("Busqueda");
+                }
+            }
+            catch (Exception error)
+            {
+                if (error.Message == "Busqueda")
+                {
+                    return PartialView("_ErrorDiferenciaSalarial");
+                }
+                else
+                {
+                    return View(model);
+                }
             }
         }
 

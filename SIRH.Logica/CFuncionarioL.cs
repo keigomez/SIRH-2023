@@ -2859,5 +2859,27 @@ namespace SIRH.Logica
                     };
             }
         }
+
+        public CBaseDTO BuscaFuncionarioPorID(string id)
+        {
+            CBaseDTO respuesta;
+
+            CFuncionarioD intermedio = new CFuncionarioD(contexto);
+
+            var funcionario = intermedio.BuscaFuncionarioPorID(id);
+
+            if (funcionario.Codigo > 0)
+            {
+                respuesta = ConvertirDatosFuncionarioADTO((Funcionario)funcionario.Contenido);
+                // return respuesta;
+            }
+            else
+            {
+                respuesta = new CErrorDTO { Codigo = -1, MensajeError = "No se encontraro ningún registro de cursos" };
+            }
+
+            return respuesta;
+        }
+
     }
 }

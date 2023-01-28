@@ -1,25 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="SIRHModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'SIRH.dbo._AEscala' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="_AEscala">
-          <Property Name="CLASE" Type="float" />
-          <Property Name="DESCRIPCIÓN" Type="nvarchar" MaxLength="255" />
-          <Property Name="CAT" Type="float" />
-          <Property Name="BASE" Type="float" />
-          <Property Name="AUM" Type="float" />
-          <Property Name="COL 3750" Type="float" />
-          <Property Name="F7" Type="nvarchar" MaxLength="255" />
-          <Property Name="F8" Type="nvarchar" MaxLength="255" />
-          <Property Name="F9" Type="nvarchar" MaxLength="255" />
-          <Property Name="F10" Type="float" />
-        </EntityType>-->
-  <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'SIRH.dbo._AUbicReal' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="_AUbicReal">
-          <Property Name="CEDULA" Type="varchar" MaxLength="50" />
-          <Property Name="UBIC_REAL" Type="varchar" MaxLength="50" />
-        </EntityType>-->
   <EntityType Name="_AUX_DetallePagoGasto">
     <Key>
       <PropertyRef Name="PK_Detalle" />
@@ -188,19 +168,6 @@ advertencia 6002: La tabla o vista 'SIRH.dbo._Componentes' no tiene definida nin
     <Property Name="Observacion3" Type="varchar" MaxLength="255" />
     <Property Name="Fecha" Type="datetime" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'SIRH.dbo._EMU_CURSO_POLICIAL' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="_EMU_CURSO_POLICIAL">
-          <Property Name="CEDULA" Type="varchar" MaxLength="10" />
-          <Property Name="CURSO" Type="varchar" MaxLength="300" />
-          <Property Name="MODALIDAD" Type="varchar" MaxLength="50" />
-          <Property Name="INICIO" Type="datetime" />
-          <Property Name="FINAL" Type="datetime" />
-          <Property Name="EMISOR" Type="varchar" MaxLength="300" />
-          <Property Name="RESOLUCION" Type="varchar" MaxLength="50" />
-          <Property Name="HORAS" Type="int" />
-          <Property Name="PUNTOS" Type="int" />
-        </EntityType>-->
   <EntityType Name="_EMU_Cursos">
     <Key>
       <PropertyRef Name="ID" />
@@ -273,23 +240,6 @@ advertencia 6002: La tabla o vista 'SIRH.dbo._EMU_EXFUNCIONARIOS' no tiene defin
     <Property Name="PASOS_DISF" Type="int" />
     <Property Name="FECHA_POLICIAL" Type="datetime" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'SIRH.dbo._EMU_Expediente' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="_EMU_Expediente">
-          <Property Name="CEDULA" Type="nvarchar" MaxLength="255" />
-          <Property Name="NUMEROEXP" Type="nvarchar" MaxLength="255" />
-        </EntityType>-->
-  <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'SIRH.dbo._EMU_GRADO_POLICIAL' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="_EMU_GRADO_POLICIAL">
-          <Property Name="CEDULA" Type="varchar" MaxLength="10" />
-          <Property Name="TITULO" Type="varchar" MaxLength="150" />
-          <Property Name="TIPO_TITULO" Type="varchar" MaxLength="50" />
-          <Property Name="FECHA_EMISION" Type="datetime" />
-          <Property Name="EMISOR" Type="varchar" MaxLength="300" />
-          <Property Name="RESOLUCION" Type="varchar" MaxLength="20" />
-          <Property Name="PORCENTAJE" Type="int" />
-        </EntityType>-->
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'SIRH.dbo._EMU_HistoricoPlanilla' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="_EMU_HistoricoPlanilla">
@@ -400,86 +350,6 @@ advertencia 6002: La tabla o vista 'SIRH.dbo._EMU_HistoricoPlanilla' no tiene de
     <Property Name="DEPARTAMENTO" Type="nvarchar" MaxLength="50" />
     <Property Name="SECCION" Type="nvarchar" MaxLength="50" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'SIRH.dbo._EMU_PUESTOS_INACTIVOS' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="_EMU_PUESTOS_INACTIVOS">
-          <Property Name="ISN_ADPEF04M" Type="nvarchar" MaxLength="255" />
-          <Property Name="TITULO_P" Type="nvarchar" MaxLength="255" />
-          <Property Name="FILLER_P" Type="nvarchar" MaxLength="255" />
-          <Property Name="DIRECCION_P" Type="nvarchar" MaxLength="255" />
-          <Property Name="CLASE_PUESTO" Type="nvarchar" MaxLength="255" />
-          <Property Name="DIA_1" Type="nvarchar" MaxLength="255" />
-          <Property Name="MES_1" Type="nvarchar" MaxLength="255" />
-          <Property Name="ANO_1" Type="nvarchar" MaxLength="255" />
-          <Property Name="DIA_2" Type="nvarchar" MaxLength="255" />
-          <Property Name="MES_2" Type="nvarchar" MaxLength="255" />
-          <Property Name="ANO_2" Type="nvarchar" MaxLength="255" />
-          <Property Name="DIA_3" Type="nvarchar" MaxLength="255" />
-          <Property Name="MES_3" Type="nvarchar" MaxLength="255" />
-          <Property Name="ANO_3" Type="nvarchar" MaxLength="255" />
-          <Property Name="DIA_4" Type="nvarchar" MaxLength="255" />
-          <Property Name="MES_4" Type="nvarchar" MaxLength="255" />
-          <Property Name="ANO_4" Type="nvarchar" MaxLength="255" />
-          <Property Name="DIVISION" Type="nvarchar" MaxLength="255" />
-          <Property Name="SUBDIVISION" Type="nvarchar" MaxLength="255" />
-          <Property Name="DIRECCION" Type="nvarchar" MaxLength="255" />
-          <Property Name="DEPARTAMENTO" Type="nvarchar" MaxLength="255" />
-          <Property Name="SECCION" Type="nvarchar" MaxLength="255" />
-          <Property Name="ESTADO" Type="nvarchar" MaxLength="255" />
-          <Property Name="DIA_5" Type="nvarchar" MaxLength="255" />
-          <Property Name="MES_5" Type="nvarchar" MaxLength="255" />
-          <Property Name="ANO_5" Type="nvarchar" MaxLength="255" />
-          <Property Name="DIA_6" Type="nvarchar" MaxLength="255" />
-          <Property Name="MES_6" Type="nvarchar" MaxLength="255" />
-          <Property Name="ANO_6" Type="nvarchar" MaxLength="255" />
-          <Property Name="TIPO_REG" Type="nvarchar" MaxLength="255" />
-          <Property Name="RESOL_ESPE" Type="nvarchar" MaxLength="255" />
-          <Property Name="COND_CAMB_ESPE" Type="nvarchar" MaxLength="255" />
-          <Property Name="COD_ESP_ANTERIOR" Type="nvarchar" MaxLength="255" />
-          <Property Name="FECHA_RIGE_CAMP_ESP" Type="nvarchar" MaxLength="255" />
-          <Property Name="FECHA_VENC_CAMP_ESP" Type="nvarchar" MaxLength="255" />
-          <Property Name="CODIGO_TECNICO" Type="nvarchar" MaxLength="255" />
-          <Property Name="NUMERO_PUESTO" Type="nvarchar" MaxLength="255" />
-          <Property Name="CATEGORIA" Type="nvarchar" MaxLength="255" />
-          <Property Name="CEDULA_OFICIAL" Type="nvarchar" MaxLength="255" />
-          <Property Name="CEDULA_INTERINA" Type="nvarchar" MaxLength="255" />
-          <Property Name="ESPECIALIDAD" Type="nvarchar" MaxLength="255" />
-          <Property Name="NUMERO_PEDIMENTO" Type="nvarchar" MaxLength="255" />
-          <Property Name="NUMERO_REASIGNACION" Type="nvarchar" MaxLength="255" />
-          <Property Name="NUMERO_RESOLUCION" Type="nvarchar" MaxLength="255" />
-          <Property Name="DIA_ACT" Type="nvarchar" MaxLength="255" />
-          <Property Name="MES_ACT" Type="nvarchar" MaxLength="255" />
-          <Property Name="ANO_ACT" Type="nvarchar" MaxLength="255" />
-          <Property Name="INDICADOR" Type="nvarchar" MaxLength="255" />
-          <Property Name="CLASE_PUESTO_2" Type="nvarchar" MaxLength="255" />
-          <Property Name="CATEGORIA_2" Type="nvarchar" MaxLength="255" />
-          <Property Name="ESPECIALIDAD_2" Type="nvarchar" MaxLength="255" />
-          <Property Name="ULT_DOC_ACT" Type="nvarchar" MaxLength="255" />
-          <Property Name="ESPECIAL1" Type="nvarchar" MaxLength="255" />
-          <Property Name="ESPECIAL2" Type="nvarchar" MaxLength="255" />
-          <Property Name="NO_STAP" Type="nvarchar" MaxLength="255" />
-          <Property Name="CEDULA_CADENA" Type="nvarchar" MaxLength="255" />
-          <Property Name="CODIGO_REASIGNACION" Type="nvarchar" MaxLength="255" />
-          <Property Name="RELACION" Type="nvarchar" MaxLength="255" />
-          <Property Name="COD_PRESUP_PROP" Type="nvarchar" MaxLength="255" />
-          <Property Name="FECHA_ESTUDIO" Type="nvarchar" MaxLength="255" />
-          <Property Name="DOC_ESTUDIO" Type="nvarchar" MaxLength="255" />
-          <Property Name="TIPO_REGIMEN" Type="nvarchar" MaxLength="255" />
-          <Property Name="NUM_RESOL_REGIMEN" Type="nvarchar" MaxLength="255" />
-          <Property Name="FECHA_TRASL_REGIMEN" Type="nvarchar" MaxLength="255" />
-          <Property Name="CONDICION_PUESTO" Type="nvarchar" MaxLength="255" />
-          <Property Name="CONDICION_REASIG" Type="nvarchar" MaxLength="255" />
-          <Property Name="CODIGO_PRESUP_NUEVO" Type="nvarchar" MaxLength="255" />
-          <Property Name="NUMERO_EXPEDIENTE" Type="nvarchar" MaxLength="255" />
-          <Property Name="TIPO_NOMBRAMIENTO" Type="nvarchar" MaxLength="255" />
-          <Property Name="NIVEL_OCUPACIONAL" Type="nvarchar" MaxLength="255" />
-          <Property Name="SUBESPECIALIDAD" Type="nvarchar" MaxLength="255" />
-          <Property Name="SUELDO_MENSUAL" Type="nvarchar" MaxLength="255" />
-          <Property Name="SECC_ANTE" Type="nvarchar" MaxLength="255" />
-          <Property Name="CONTROL" Type="nvarchar" MaxLength="255" />
-          <Property Name="CONCEPTO" Type="nvarchar" MaxLength="255" />
-          <Property Name="AGENCIA" Type="nvarchar" MaxLength="255" />
-        </EntityType>-->
   <EntityType Name="_EMU_Puntos">
     <Key>
       <PropertyRef Name="ID" />
@@ -836,25 +706,6 @@ advertencia 6002: La tabla o vista 'SIRH.dbo._planillacargar' no tiene definida 
     <Property Name="PK_Nombramiento" Type="int" Nullable="false" />
   </EntityType>
   <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'SIRH.dbo._Quin' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="_Quin">
-          <Property Name="NOMBRE" Type="nvarchar" MaxLength="255" />
-          <Property Name="CEDULA" Type="nvarchar" MaxLength="255" />
-          <Property Name="CLASE DE PUESTO" Type="nvarchar" MaxLength="255" />
-          <Property Name="PUESTO" Type="nvarchar" MaxLength="255" />
-          <Property Name="% ACTUAL" Type="float" />
-          <Property Name="% ADICIONAL" Type="float" />
-          <Property Name="TOTAL" Type="float" />
-          <Property Name="SALARIO BASE A JULIO 2018" Type="varchar" MaxLength="255" />
-          <Property Name="MONTO NOMINAL ADICIONAL" Type="varchar" MaxLength="255" />
-          <Property Name="MONTO NOMINAL" Type="varchar" MaxLength="255" />
-          <Property Name="RIGE" Type="varchar" MaxLength="255" />
-          <Property Name="FK_Funcionario" Type="varchar" MaxLength="255" />
-          <Property Name="FK_Nombramiento" Type="varchar" MaxLength="255" />
-          <Property Name="Observaciones" Type="varchar" MaxLength="255" />
-          <Property Name="NumAccion" Type="varchar" MaxLength="255" />
-        </EntityType>-->
-  <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'SIRH.dbo._RebajoPendientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="_RebajoPendientes">
     <Key>
@@ -914,52 +765,6 @@ advertencia 6002: La tabla o vista 'SIRH.dbo._RespaldoNombramiento20210303' no t
     <Property Name="FecVence" Type="datetime" />
     <Property Name="FecNombramiento" Type="datetime" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'SIRH.dbo._RubrosIniciales' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="_RubrosIniciales">
-          <Property Name="cedula" Type="varchar" MaxLength="50" />
-          <Property Name="nombre_institucion" Type="varchar" MaxLength="50" />
-          <Property Name="fecha_aplicacion" Type="datetime" />
-          <Property Name="monto_deduccion_marco" Type="float" />
-          <Property Name="tipo" Type="varchar" MaxLength="50" />
-          <Property Name="rubro" Type="varchar" MaxLength="50" />
-          <Property Name="monto_rubro" Type="float" />
-          <Property Name="FK_Nombramiento" Type="int" />
-          <Property Name="IndRubro" Type="varchar" MaxLength="50" />
-          <Property Name="CedulaMOPT" Type="varchar" MaxLength="10" />
-        </EntityType>-->
-  <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'SIRH.dbo._UsuariosActivos' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="_UsuariosActivos">
-          <Property Name="Cedula" Type="nvarchar" MaxLength="255" />
-          <Property Name="Cedula1" Type="nvarchar" MaxLength="255" />
-          <Property Name="Nombre" Type="nvarchar" MaxLength="255" />
-          <Property Name="Correo" Type="nvarchar" MaxLength="255" />
-          <Property Name="Usuario" Type="nvarchar" MaxLength="255" />
-          <Property Name="Id" Type="int" />
-        </EntityType>-->
-  <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'SIRH.dbo._VACANTES_AB' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="_VACANTES_AB">
-          <Property Name="ESTADO DE VACANTE " Type="nvarchar" MaxLength="255" />
-          <Property Name="PUESTO" Type="nvarchar" MaxLength="255" />
-          <Property Name="PEDIMENTO" Type="nvarchar" MaxLength="255" />
-          <Property Name="CLASE:" Type="nvarchar" MaxLength="255" />
-          <Property Name="ESPECIALIDAD:" Type="nvarchar" MaxLength="255" />
-          <Property Name="SUBESPECIALIDAD" Type="nvarchar" MaxLength="255" />
-          <Property Name="CÓDIGO PRESUPUESTARIO" Type="nvarchar" MaxLength="255" />
-          <Property Name="UBICACIÓN ACTUAL" Type="nvarchar" MaxLength="255" />
-          <Property Name="DEPARTAMENTO" Type="nvarchar" MaxLength="255" />
-          <Property Name="PROPIETARIO: " Type="nvarchar" MaxLength="255" />
-          <Property Name="MOTIVO" Type="nvarchar" MaxLength="255" />
-          <Property Name="INTERINO:" Type="nvarchar" MaxLength="255" />
-          <Property Name="MOTIVO:1" Type="nvarchar" MaxLength="255" />
-          <Property Name="RIGE:" Type="datetime" />
-          <Property Name="VENCE:" Type="datetime" />
-          <Property Name="PROPUESTAS DE NOMBRAMIENTO" Type="nvarchar" MaxLength="255" />
-          <Property Name="PUESTOS EN ESTUDIO " Type="nvarchar" MaxLength="255" />
-          <Property Name="OBSERVACIONES" Type="nvarchar" MaxLength="255" />
-        </EntityType>-->
   <EntityType Name="_ViaticoCorrido">
     <Key>
       <PropertyRef Name="ID" />
@@ -3226,18 +3031,6 @@ advertencia 6002: La tabla o vista 'SIRH.dbo.PLANILLA_SPPP' no tiene definida ni
     <Property Name="FK_CatalogoRubroDeduccion" Type="int" />
     <Property Name="PorcRubro" Type="float" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'SIRH.dbo.Rubros' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="Rubros">
-          <Property Name="fecha_aplicacion" Type="datetime" />
-          <Property Name="monto_deduccion_marco" Type="float" />
-          <Property Name="tipo" Type="varchar" MaxLength="50" />
-          <Property Name="rubro" Type="varchar" MaxLength="50" />
-          <Property Name="monto_rubro" Type="float" />
-          <Property Name="FK_Nombramiento" Type="int" />
-          <Property Name="IndRubro" Type="varchar" MaxLength="50" />
-          <Property Name="CedulaMOPT" Type="varchar" MaxLength="10" />
-        </EntityType>-->
   <EntityType Name="Seccion">
     <Key>
       <PropertyRef Name="PK_Seccion" />
@@ -3548,7 +3341,7 @@ advertencia 6013: La tabla o vista 'SIRH.dbo.Rubros' no tiene definida una clave
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CatalogoT__FK_Ti__72D0F942">
+  <Association Name="FK__CatalogoT__FK_Ti__11558062">
     <End Role="TipoDeduccion" Type="Self.TipoDeduccion" Multiplicity="0..1" />
     <End Role="CatalogoTipoDeduccion" Type="Self.CatalogoTipoDeduccion" Multiplicity="*" />
     <ReferentialConstraint>
@@ -3596,7 +3389,7 @@ advertencia 6013: La tabla o vista 'SIRH.dbo.Rubros' no tiene definida una clave
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DetalleDe__FK_Ca__71DCD509">
+  <Association Name="FK__DetalleDe__FK_Ca__10615C29">
     <End Role="CatalogoTipoDeduccion" Type="Self.CatalogoTipoDeduccion" Multiplicity="0..1" />
     <End Role="DetalleDeducciones" Type="Self.DetalleDeducciones" Multiplicity="*" />
     <ReferentialConstraint>
@@ -3608,7 +3401,7 @@ advertencia 6013: La tabla o vista 'SIRH.dbo.Rubros' no tiene definida una clave
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DetalleDe__FK_De__70E8B0D0">
+  <Association Name="FK__DetalleDe__FK_De__0F6D37F0">
     <End Role="DetalleDiferenciaSalarial" Type="Self.DetalleDiferenciaSalarial" Multiplicity="0..1" />
     <End Role="DetalleDeducciones" Type="Self.DetalleDeducciones" Multiplicity="*" />
     <ReferentialConstraint>
@@ -3620,7 +3413,7 @@ advertencia 6013: La tabla o vista 'SIRH.dbo.Rubros' no tiene definida una clave
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DetalleDi__FK_Di__6C23FBB3">
+  <Association Name="FK__DetalleDi__FK_Di__0AA882D3">
     <End Role="DiferenciaSalarial" Type="Self.DiferenciaSalarial" Multiplicity="0..1" />
     <End Role="DetalleDiferenciaSalarial" Type="Self.DetalleDiferenciaSalarial" Multiplicity="*" />
     <ReferentialConstraint>
@@ -3632,7 +3425,7 @@ advertencia 6013: La tabla o vista 'SIRH.dbo.Rubros' no tiene definida una clave
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DetalleDi__FK_Po__6D181FEC">
+  <Association Name="FK__DetalleDi__FK_Po__0B9CA70C">
     <End Role="PorcentajeRenta" Type="Self.PorcentajeRenta" Multiplicity="0..1" />
     <End Role="DetalleDiferenciaSalarial" Type="Self.DetalleDiferenciaSalarial" Multiplicity="*" />
     <ReferentialConstraint>
@@ -3644,7 +3437,7 @@ advertencia 6013: La tabla o vista 'SIRH.dbo.Rubros' no tiene definida una clave
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DetalleDi__FK_Po__6E0C4425">
+  <Association Name="FK__DetalleDi__FK_Po__0C90CB45">
     <End Role="PorcentajeSalarioEscolar" Type="Self.PorcentajeSalarioEscolar" Multiplicity="0..1" />
     <End Role="DetalleDiferenciaSalarial" Type="Self.DetalleDiferenciaSalarial" Multiplicity="*" />
     <ReferentialConstraint>
@@ -3680,7 +3473,7 @@ advertencia 6013: La tabla o vista 'SIRH.dbo.Rubros' no tiene definida una clave
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DetalleRu__FK_Co__6FF48C97">
+  <Association Name="FK__DetalleRu__FK_Co__0E7913B7">
     <End Role="ComponenteSalarial" Type="Self.ComponenteSalarial" Multiplicity="0..1" />
     <End Role="DetalleRubro" Type="Self.DetalleRubro" Multiplicity="*" />
     <ReferentialConstraint>
@@ -3692,7 +3485,7 @@ advertencia 6013: La tabla o vista 'SIRH.dbo.Rubros' no tiene definida una clave
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DetalleRu__FK_De__6F00685E">
+  <Association Name="FK__DetalleRu__FK_De__0D84EF7E">
     <End Role="DetalleDiferenciaSalarial" Type="Self.DetalleDiferenciaSalarial" Multiplicity="0..1" />
     <End Role="DetalleRubro" Type="Self.DetalleRubro" Multiplicity="*" />
     <ReferentialConstraint>
@@ -3704,7 +3497,7 @@ advertencia 6013: La tabla o vista 'SIRH.dbo.Rubros' no tiene definida una clave
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Diferenci__FK_Cl__6A3BB341">
+  <Association Name="FK__Diferenci__FK_Cl__08C03A61">
     <End Role="Clase" Type="Self.Clase" Multiplicity="0..1" />
     <End Role="DiferenciaSalarial" Type="Self.DiferenciaSalarial" Multiplicity="*" />
     <ReferentialConstraint>
@@ -3716,7 +3509,7 @@ advertencia 6013: La tabla o vista 'SIRH.dbo.Rubros' no tiene definida una clave
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Diferenci__FK_Es__6B2FD77A">
+  <Association Name="FK__Diferenci__FK_Es__09B45E9A">
     <End Role="Especialidad" Type="Self.Especialidad" Multiplicity="0..1" />
     <End Role="DiferenciaSalarial" Type="Self.DiferenciaSalarial" Multiplicity="*" />
     <ReferentialConstraint>
@@ -3728,7 +3521,7 @@ advertencia 6013: La tabla o vista 'SIRH.dbo.Rubros' no tiene definida una clave
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Diferenci__FK_Fu__68536ACF">
+  <Association Name="FK__Diferenci__FK_Fu__06D7F1EF">
     <End Role="Funcionario" Type="Self.Funcionario" Multiplicity="0..1" />
     <End Role="DiferenciaSalarial" Type="Self.DiferenciaSalarial" Multiplicity="*" />
     <ReferentialConstraint>
@@ -3740,7 +3533,7 @@ advertencia 6013: La tabla o vista 'SIRH.dbo.Rubros' no tiene definida una clave
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Diferenci__FK_Pu__69478F08">
+  <Association Name="FK__Diferenci__FK_Pu__07CC1628">
     <End Role="Puesto" Type="Self.Puesto" Multiplicity="0..1" />
     <End Role="DiferenciaSalarial" Type="Self.DiferenciaSalarial" Multiplicity="*" />
     <ReferentialConstraint>
@@ -3884,7 +3677,7 @@ advertencia 6013: La tabla o vista 'SIRH.dbo.Rubros' no tiene definida una clave
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RubroDedu__FK_Ca__73C51D7B">
+  <Association Name="FK__RubroDedu__FK_Ca__1249A49B">
     <End Role="CatalogoTipoDeduccion" Type="Self.CatalogoTipoDeduccion" Multiplicity="0..1" />
     <End Role="RubroDeduccion" Type="Self.RubroDeduccion" Multiplicity="*" />
     <ReferentialConstraint>
@@ -3896,7 +3689,7 @@ advertencia 6013: La tabla o vista 'SIRH.dbo.Rubros' no tiene definida una clave
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RubroDedu__FK_Ca__74B941B4">
+  <Association Name="FK__RubroDedu__FK_Ca__133DC8D4">
     <End Role="CatalogoRubroDeduccion" Type="Self.CatalogoRubroDeduccion" Multiplicity="0..1" />
     <End Role="RubroDeduccion" Type="Self.RubroDeduccion" Multiplicity="*" />
     <ReferentialConstraint>
@@ -7889,7 +7682,7 @@ FROM [dbo].[PLANILLA_SPPP] AS [PLANILLA_SPPP]</DefiningQuery>
       <End Role="Provincia" EntitySet="Provincia" />
       <End Role="Canton" EntitySet="Canton" />
     </AssociationSet>
-    <AssociationSet Name="FK__CatalogoT__FK_Ti__72D0F942" Association="Self.FK__CatalogoT__FK_Ti__72D0F942">
+    <AssociationSet Name="FK__CatalogoT__FK_Ti__11558062" Association="Self.FK__CatalogoT__FK_Ti__11558062">
       <End Role="TipoDeduccion" EntitySet="TipoDeduccion" />
       <End Role="CatalogoTipoDeduccion" EntitySet="CatalogoTipoDeduccion" />
     </AssociationSet>
@@ -7905,23 +7698,23 @@ FROM [dbo].[PLANILLA_SPPP] AS [PLANILLA_SPPP]</DefiningQuery>
       <End Role="Usuario" EntitySet="Usuario" />
       <End Role="DetalleAcceso" EntitySet="DetalleAcceso" />
     </AssociationSet>
-    <AssociationSet Name="FK__DetalleDe__FK_Ca__71DCD509" Association="Self.FK__DetalleDe__FK_Ca__71DCD509">
+    <AssociationSet Name="FK__DetalleDe__FK_Ca__10615C29" Association="Self.FK__DetalleDe__FK_Ca__10615C29">
       <End Role="CatalogoTipoDeduccion" EntitySet="CatalogoTipoDeduccion" />
       <End Role="DetalleDeducciones" EntitySet="DetalleDeducciones" />
     </AssociationSet>
-    <AssociationSet Name="FK__DetalleDe__FK_De__70E8B0D0" Association="Self.FK__DetalleDe__FK_De__70E8B0D0">
+    <AssociationSet Name="FK__DetalleDe__FK_De__0F6D37F0" Association="Self.FK__DetalleDe__FK_De__0F6D37F0">
       <End Role="DetalleDiferenciaSalarial" EntitySet="DetalleDiferenciaSalarial" />
       <End Role="DetalleDeducciones" EntitySet="DetalleDeducciones" />
     </AssociationSet>
-    <AssociationSet Name="FK__DetalleDi__FK_Di__6C23FBB3" Association="Self.FK__DetalleDi__FK_Di__6C23FBB3">
+    <AssociationSet Name="FK__DetalleDi__FK_Di__0AA882D3" Association="Self.FK__DetalleDi__FK_Di__0AA882D3">
       <End Role="DiferenciaSalarial" EntitySet="DiferenciaSalarial" />
       <End Role="DetalleDiferenciaSalarial" EntitySet="DetalleDiferenciaSalarial" />
     </AssociationSet>
-    <AssociationSet Name="FK__DetalleDi__FK_Po__6D181FEC" Association="Self.FK__DetalleDi__FK_Po__6D181FEC">
+    <AssociationSet Name="FK__DetalleDi__FK_Po__0B9CA70C" Association="Self.FK__DetalleDi__FK_Po__0B9CA70C">
       <End Role="PorcentajeRenta" EntitySet="PorcentajeRenta" />
       <End Role="DetalleDiferenciaSalarial" EntitySet="DetalleDiferenciaSalarial" />
     </AssociationSet>
-    <AssociationSet Name="FK__DetalleDi__FK_Po__6E0C4425" Association="Self.FK__DetalleDi__FK_Po__6E0C4425">
+    <AssociationSet Name="FK__DetalleDi__FK_Po__0C90CB45" Association="Self.FK__DetalleDi__FK_Po__0C90CB45">
       <End Role="PorcentajeSalarioEscolar" EntitySet="PorcentajeSalarioEscolar" />
       <End Role="DetalleDiferenciaSalarial" EntitySet="DetalleDiferenciaSalarial" />
     </AssociationSet>
@@ -7933,27 +7726,27 @@ FROM [dbo].[PLANILLA_SPPP] AS [PLANILLA_SPPP]</DefiningQuery>
       <End Role="FormacionAcademica" EntitySet="FormacionAcademica" />
       <End Role="DetallePuntosAdicional" EntitySet="DetallePuntosAdicional" />
     </AssociationSet>
-    <AssociationSet Name="FK__DetalleRu__FK_Co__6FF48C97" Association="Self.FK__DetalleRu__FK_Co__6FF48C97">
+    <AssociationSet Name="FK__DetalleRu__FK_Co__0E7913B7" Association="Self.FK__DetalleRu__FK_Co__0E7913B7">
       <End Role="ComponenteSalarial" EntitySet="ComponenteSalarial" />
       <End Role="DetalleRubro" EntitySet="DetalleRubro" />
     </AssociationSet>
-    <AssociationSet Name="FK__DetalleRu__FK_De__6F00685E" Association="Self.FK__DetalleRu__FK_De__6F00685E">
+    <AssociationSet Name="FK__DetalleRu__FK_De__0D84EF7E" Association="Self.FK__DetalleRu__FK_De__0D84EF7E">
       <End Role="DetalleDiferenciaSalarial" EntitySet="DetalleDiferenciaSalarial" />
       <End Role="DetalleRubro" EntitySet="DetalleRubro" />
     </AssociationSet>
-    <AssociationSet Name="FK__Diferenci__FK_Cl__6A3BB341" Association="Self.FK__Diferenci__FK_Cl__6A3BB341">
+    <AssociationSet Name="FK__Diferenci__FK_Cl__08C03A61" Association="Self.FK__Diferenci__FK_Cl__08C03A61">
       <End Role="Clase" EntitySet="Clase" />
       <End Role="DiferenciaSalarial" EntitySet="DiferenciaSalarial" />
     </AssociationSet>
-    <AssociationSet Name="FK__Diferenci__FK_Es__6B2FD77A" Association="Self.FK__Diferenci__FK_Es__6B2FD77A">
+    <AssociationSet Name="FK__Diferenci__FK_Es__09B45E9A" Association="Self.FK__Diferenci__FK_Es__09B45E9A">
       <End Role="Especialidad" EntitySet="Especialidad" />
       <End Role="DiferenciaSalarial" EntitySet="DiferenciaSalarial" />
     </AssociationSet>
-    <AssociationSet Name="FK__Diferenci__FK_Fu__68536ACF" Association="Self.FK__Diferenci__FK_Fu__68536ACF">
+    <AssociationSet Name="FK__Diferenci__FK_Fu__06D7F1EF" Association="Self.FK__Diferenci__FK_Fu__06D7F1EF">
       <End Role="Funcionario" EntitySet="Funcionario" />
       <End Role="DiferenciaSalarial" EntitySet="DiferenciaSalarial" />
     </AssociationSet>
-    <AssociationSet Name="FK__Diferenci__FK_Pu__69478F08" Association="Self.FK__Diferenci__FK_Pu__69478F08">
+    <AssociationSet Name="FK__Diferenci__FK_Pu__07CC1628" Association="Self.FK__Diferenci__FK_Pu__07CC1628">
       <End Role="Puesto" EntitySet="Puesto" />
       <End Role="DiferenciaSalarial" EntitySet="DiferenciaSalarial" />
     </AssociationSet>
@@ -8001,11 +7794,11 @@ FROM [dbo].[PLANILLA_SPPP] AS [PLANILLA_SPPP]</DefiningQuery>
       <End Role="UbicacionPuesto" EntitySet="UbicacionPuesto" />
       <End Role="RelPuestoUbicacion" EntitySet="RelPuestoUbicacion" />
     </AssociationSet>
-    <AssociationSet Name="FK__RubroDedu__FK_Ca__73C51D7B" Association="Self.FK__RubroDedu__FK_Ca__73C51D7B">
+    <AssociationSet Name="FK__RubroDedu__FK_Ca__1249A49B" Association="Self.FK__RubroDedu__FK_Ca__1249A49B">
       <End Role="CatalogoTipoDeduccion" EntitySet="CatalogoTipoDeduccion" />
       <End Role="RubroDeduccion" EntitySet="RubroDeduccion" />
     </AssociationSet>
-    <AssociationSet Name="FK__RubroDedu__FK_Ca__74B941B4" Association="Self.FK__RubroDedu__FK_Ca__74B941B4">
+    <AssociationSet Name="FK__RubroDedu__FK_Ca__133DC8D4" Association="Self.FK__RubroDedu__FK_Ca__133DC8D4">
       <End Role="CatalogoRubroDeduccion" EntitySet="CatalogoRubroDeduccion" />
       <End Role="RubroDeduccion" EntitySet="RubroDeduccion" />
     </AssociationSet>

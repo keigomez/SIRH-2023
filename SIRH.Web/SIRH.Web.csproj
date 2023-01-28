@@ -2944,6 +2944,8 @@
     <Content Include="Views\DiferenciaSalarial\_VerResumen.cshtml" />
     <Content Include="Views\DiferenciaSalarial\Puesto_Index.cshtml" />
     <Content Include="Views\DiferenciaSalarial\Puesto_Index_Result.cshtml" />
+    <Content Include="Views\DiferenciaSalarial\SearchFuncionario.cshtml" />
+    <Content Include="Views\DiferenciaSalarial\_SearchFuncionarioResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

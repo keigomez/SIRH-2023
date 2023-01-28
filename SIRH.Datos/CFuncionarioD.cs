@@ -2706,6 +2706,41 @@ namespace SIRH.Datos
 
             return respuesta;
         }
+
+        public CRespuestaDTO BuscaFuncionarioPorID(string idFuncionario)
+        {
+            CRespuestaDTO respuesta;
+
+            try
+            {
+                var datosFuncionario = entidadBase.Funcionario.Where(M => M.IdCedulaFuncionario == idFuncionario).FirstOrDefault();
+
+                if (datosFuncionario != null)
+                {
+                    respuesta = new CRespuestaDTO
+                    {
+                        Codigo = 1,
+                        Contenido = datosFuncionario
+                    };
+                    return respuesta;
+                }
+                else
+                {
+                    throw new Exception("No se encontro ningún funcionario asociado a la cédula especificada.");
+                }
+            }
+            catch (Exception error)
+            {
+                respuesta = new CRespuestaDTO
+                {
+                    Codigo = -1,
+                    Contenido = new CErrorDTO { Mensaje = error.Message }
+                };
+
+                return respuesta;
+            }
+        }
+
         #endregion
     }
 }

@@ -114,5 +114,8 @@ namespace SIRH.Servicios
 
         [OperationContract]
         List<CBaseDTO> ObtenerCatalogoRubrosDeduccion();
+
+        [OperationContract]
+        CBaseDTO BuscaFuncionarioPorID(string id);
     }
 }

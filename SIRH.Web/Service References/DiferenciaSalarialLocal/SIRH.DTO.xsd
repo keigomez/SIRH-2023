@@ -332,7 +332,7 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="DesClase" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="IndCategoria" type="xs:int" />
-          <xs:element minOccurs="0" name="IndEstClase" type="xs:int" />
+          <xs:element minOccurs="0" name="IndEstadoClase" type="xs:int" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>

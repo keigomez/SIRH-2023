@@ -177,6 +177,12 @@
   <wsdl:message name="ICDiferenciaSalarialService_ObtenerCatalogoRubrosDeduccion_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerCatalogoRubrosDeduccionResponse" />
   </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscaFuncionarioPorID_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscaFuncionarioPorID" />
+  </wsdl:message>
+  <wsdl:message name="ICDiferenciaSalarialService_BuscaFuncionarioPorID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscaFuncionarioPorIDResponse" />
+  </wsdl:message>
   <wsdl:portType name="ICDiferenciaSalarialService">
     <wsdl:operation name="GuardarDiferenciaSalarial">
       <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/GuardarDiferenciaSalarial" message="tns:ICDiferenciaSalarialService_GuardarDiferenciaSalarial_InputMessage" />
@@ -289,6 +295,10 @@
     <wsdl:operation name="ObtenerCatalogoRubrosDeduccion">
       <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/ObtenerCatalogoRubrosDeduccion" message="tns:ICDiferenciaSalarialService_ObtenerCatalogoRubrosDeduccion_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/ObtenerCatalogoRubrosDeduccionResponse" message="tns:ICDiferenciaSalarialService_ObtenerCatalogoRubrosDeduccion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscaFuncionarioPorID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscaFuncionarioPorID" message="tns:ICDiferenciaSalarialService_BuscaFuncionarioPorID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICDiferenciaSalarialService/BuscaFuncionarioPorIDResponse" message="tns:ICDiferenciaSalarialService_BuscaFuncionarioPorID_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICDiferenciaSalarialService" type="tns:ICDiferenciaSalarialService">
@@ -538,6 +548,15 @@
     </wsdl:operation>
     <wsdl:operation name="ObtenerCatalogoRubrosDeduccion">
       <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/ObtenerCatalogoRubrosDeduccion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaFuncionarioPorID">
+      <soap:operation soapAction="http://tempuri.org/ICDiferenciaSalarialService/BuscaFuncionarioPorID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
