@@ -1385,6 +1385,7 @@
     <Content Include="Scripts\Pages\FormularioCarrera.js" />
     <Content Include="Scripts\Pages\FormularioCaucion.js" />
     <Content Include="Scripts\Pages\FormularioDesarraigo.js" />
+    <Content Include="Scripts\Pages\FormularioDiferenciaSalarial.js" />
     <Content Include="Scripts\Pages\FormularioEditarCurso.js" />
     <Content Include="Scripts\Pages\FormularioExperiencia.js" />
     <Content Include="Scripts\Pages\FormularioIncapacidad.js" />

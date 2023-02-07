@@ -32,6 +32,7 @@
                                     @Html.HiddenFor(model => model.Funcionario.PrimerApellido)
                                     @Html.HiddenFor(model => model.Funcionario.SegundoApellido)
                                 </td>
+                                <td>@Html.ActionLink("Seleccionar", "", "DiferenciaSalarial", null, new { @class = "btn btn-outline-primary", @onclick = "return CargarDato('" + Model.Funcionario.Cedula + "-" + Model.Funcionario.Nombre + " " + Model.Funcionario.PrimerApellido + " " + Model.Funcionario.SegundoApellido + "', 'funcionario');" }) </td>
 
                             </tr>
 
