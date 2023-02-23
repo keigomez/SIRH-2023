@@ -1,0 +1,37 @@
+﻿@model SIRH.Web.Models.ClaseModel
+@{
+    using (Ajax.BeginForm("Clase_Index2", "DiferenciaSalarial", new AjaxOptions { UpdateTargetId = "target-clase2", HttpMethod = "POST", OnSuccess = "successDataClase2", OnBegin = "beginDataClase2" }))
+    {
+        <div class="card">
+            <h5 class="card-header">Parámetros de búsqueda:</h5>
+            <div class="card-body">
+                <div class="row">
+                    <div class="form-group col-5">
+                        @Html.Label("Código de clase")
+                        <span>:</span>
+                        @Html.TextBox("codigoclase2", String.Empty, new { @class = "form-control", @onkeypress = "return IsNumeric(event,'clase', 'código de clase')" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-5">
+                        @Html.Label("Nombre de clase")
+                        <span>:</span>
+                        @Html.TextBox("nomclase2", String.Empty, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-3">
+                        <input type="submit" value="Buscar" id="btnBuscaClase2" class="btn btn-primary" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-5">
+                        <div id="progressbarclase2" class="loader" hidden></div>
+                    </div>
+                </div>
+                <div id="error-clase2" class="alert alert-danger" role="alert" hidden></div>
+            </div>
+        </div>
+    }
+    <div id="target-clase2"></div>
+}

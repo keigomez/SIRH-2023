@@ -145,6 +145,47 @@ namespace SIRH.Web.Controllers
             }
         }
 
+        public PartialViewResult Clase_Index2(string codigoclase2, string nomclase2, int? page)
+        {
+            Session["errorF"] = null;
+            try
+            {
+                ClaseModel modelo = new ClaseModel();
+
+                int paginaActual = page.HasValue ? page.Value : 1;
+
+                if (String.IsNullOrEmpty(codigoclase2) && String.IsNullOrEmpty(nomclase2))
+                {
+                    return PartialView();
+                }
+                else
+                {
+                    modelo.CodigoSearch = codigoclase2;
+                    modelo.NombreSearch = nomclase2;
+                    int codigoClase2 = String.IsNullOrEmpty(modelo.CodigoSearch) ? 0 : Convert.ToInt32(modelo.CodigoSearch);
+                    var clases = servicioPuesto.BuscarClaseParams(codigoClase2, modelo.NombreSearch);
+                    modelo.TotalClases = clases.Count();
+                    modelo.TotalPaginas = (int)Math.Ceiling((double)modelo.TotalClases / 10);
+                    modelo.PaginaActual = paginaActual;
+                    if ((((paginaActual - 1) * 10) + 10) > modelo.TotalClases)
+                    {
+                        modelo.Clase = clases.ToList().GetRange(((paginaActual - 1) * 10), (modelo.TotalClases) - (((paginaActual - 1) * 10))).ToList();
+                    }
+                    else
+                    {
+                        modelo.Clase = clases.ToList().GetRange(((paginaActual - 1) * 10), 10).ToList(); ;
+                    }
+
+                    return PartialView("Clase_Index_Result2", modelo);
+                }
+            }
+            catch (Exception error)
+            {
+                ModelState.AddModelError("Busqueda", "Ha ocurrido un error a la hora de realizar la búsqueda, ponerse en contacto con el personal autorizado. \n\n");
+                return PartialView("_ErrorPuesto");
+            }
+        }
+
         public PartialViewResult Especialidad_Index(string codigoEspecialidad, string nomEspecialidad, int? page)
         {
             Session["errorP"] = null;
@@ -186,6 +227,46 @@ namespace SIRH.Web.Controllers
             }
         }
 
+        public PartialViewResult Especialidad_Index2(string codigoEspecialidad2, string nomEspecialidad2, int? page)
+        {
+            Session["errorP"] = null;
+            try
+            {
+                EspecialidadModel modelo = new EspecialidadModel();
+
+                int paginaActual = page.HasValue ? page.Value : 1;
+
+                if (String.IsNullOrEmpty(codigoEspecialidad2) && String.IsNullOrEmpty(nomEspecialidad2))
+                {
+                    return PartialView();
+                }
+                else
+                {
+                    modelo.CodigoSearch = codigoEspecialidad2;
+                    modelo.NombreSearch = nomEspecialidad2;
+                    int codigoEsp = String.IsNullOrEmpty(modelo.CodigoSearch) ? 0 : Convert.ToInt32(modelo.CodigoSearch);
+                    var especialidades = servicioPuesto.BuscarEspecialidadParams(codigoEsp, modelo.NombreSearch);
+                    modelo.TotalEspecialidades = especialidades.Count();
+                    modelo.TotalPaginas = (int)Math.Ceiling((double)modelo.TotalEspecialidades / 10);
+                    modelo.PaginaActual = paginaActual;
+                    if ((((paginaActual - 1) * 10) + 10) > modelo.TotalEspecialidades)
+                    {
+                        modelo.Especialidad = especialidades.ToList().GetRange(((paginaActual - 1) * 10), (modelo.TotalEspecialidades) - (((paginaActual - 1) * 10))).ToList(); ;
+                    }
+                    else
+                    {
+                        modelo.Especialidad = especialidades.ToList().GetRange(((paginaActual - 1) * 10), 10).ToList(); ;
+                    }
+
+                    return PartialView("Especialidad_Index_Result2", modelo);
+                }
+            }
+            catch (Exception error)
+            {
+                ModelState.AddModelError("Busqueda", "Ha ocurrido un error a la hora de realizar la búsqueda, ponerse en contacto con el personal autorizado. \n\n");
+                return PartialView("_ErrorPuesto");
+            }
+        }
 
 
         public PartialViewResult Puesto_Index(string codigoPuesto, int? page)

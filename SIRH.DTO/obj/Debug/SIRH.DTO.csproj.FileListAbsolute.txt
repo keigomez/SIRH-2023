@@ -59,3 +59,4 @@ C:\Users\ramir\Documents\GitHub\SIRH-2023\SIRH.DTO\bin\Debug\SIRH.DTO.pdb
 C:\Users\ramir\Documents\GitHub\SIRH-2023\SIRH.DTO\obj\Debug\SIRH.DTO.csproj.CoreCompileInputs.cache
 C:\Users\ramir\Documents\GitHub\SIRH-2023\SIRH.DTO\obj\Debug\SIRH.DTO.dll
 C:\Users\ramir\Documents\GitHub\SIRH-2023\SIRH.DTO\obj\Debug\SIRH.DTO.pdb
+C:\Users\alfon\OneDrive\Documents\git\SIRH-2023\SIRH.DTO\obj\Debug\SIRH.DTO.csproj.AssemblyReference.cache

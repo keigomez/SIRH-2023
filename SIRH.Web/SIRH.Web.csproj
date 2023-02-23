@@ -2947,6 +2947,10 @@
     <Content Include="Views\DiferenciaSalarial\Puesto_Index_Result.cshtml" />
     <Content Include="Views\DiferenciaSalarial\SearchFuncionario.cshtml" />
     <Content Include="Views\DiferenciaSalarial\_SearchFuncionarioResult.cshtml" />
+    <Content Include="Views\DiferenciaSalarial\Clase_Index2.cshtml" />
+    <Content Include="Views\DiferenciaSalarial\Clase_Index_Result2.cshtml" />
+    <Content Include="Views\DiferenciaSalarial\Especialidad_Index2.cshtml" />
+    <Content Include="Views\DiferenciaSalarial\Especialidad_Index_Result2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

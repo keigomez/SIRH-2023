@@ -593,6 +593,37 @@ function BeginCargarUnique() {
     $("#preloaderUnique").show();
 }
 
+function CargarDatoClase2(texto, dialogo, categoria = -1) {
+    $('#buscar-' + dialogo).modal('hide');
+    $('#cod' + dialogo).val(texto);
+    if (categoria != -1) {
+        $('#txt_categoria').val(categoria);
+    }
+    //if (dialogo == "clase")
+    //{
+
+    //}
+    return false;
+}
+
+function CargarDatoEspecialidad(texto, dialogo, validacion) {
+    $('#buscar-' + dialogo).modal('hide');
+    $('#cod' + dialogo).val(texto);
+    if (validacion != 1) {
+        $('#txt_categoria').val(validacion);;
+    }
+    return false;
+}
+
+
+function CargarDatoEspecialidad2(texto, dialogo, validacion) {
+    $('#buscar-' + dialogo).modal('hide');
+    $('#cod' + dialogo).val(texto);
+    if (validacion != 1) {
+        $('#txt_categoria').val(validacion);;
+    }
+    return false;
+}
 function CompleteCargarUnique() {
     $("#preloaderUnique").hide();
     $("#btnBuscarUnique").show();

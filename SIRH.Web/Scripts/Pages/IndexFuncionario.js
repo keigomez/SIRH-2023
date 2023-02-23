@@ -9,7 +9,9 @@ function beginData() {
         $('#codnivel').val().length < 1 &&
         $('#codpuesto').val().length < 1 &&
         $('#codclase').val().length < 1 &&
+        $('#codclase2').val().length < 1 &&
         $('#codespecialidad').val().length < 1 &&
+        $('#codespecialidad2').val().length < 1 &&
         $('#coddivision').val().length < 1 &&
         $('#coddireccion').val().length < 1 &&
         $('#coddepartamento').val().length < 1 &&
